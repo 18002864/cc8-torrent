@@ -75,6 +75,8 @@ public class DistanceVectorAlgorithm {
         readConfigFile();
         log.add("My Node ---> " + myNode);
         distanceVectorAlgorithm(myNode, true);
+        stablishRoutes(this.routeMap, myNode);
+        dibujar();
     }
 
     public void distanceVectorAlgorithm(String node, Boolean firstTime) {
@@ -114,8 +116,72 @@ public class DistanceVectorAlgorithm {
         this.distanceVectorHashMap.put(node, costMap);
     }
 
-    public void stablishRoutes() {
+    public void stablishRoutes(HashMap<String, String> routeMapParam, String neighbour) {
+        HashMap<String, HashMap<String, String>> costMap = new HashMap<String, HashMap<String, String>>();
+        HashMap<String, String> whereToGoMap = new HashMap<String, String>();
 
+        /* Agregar vecino a los destinos y establecer costo asi mismo */
+        if (!this.otherNodes.contains(myNode)) {
+            this.otherNodes.add(myNode);
+        }
+        whereToGoMap.put("hop", neighbour);
+        whereToGoMap.put("cost", "0");
+        costMap.put(neighbour, whereToGoMap);
+
+        /* Agregar vecinos de mi vecino a destinos y guardar el costo */
+        for (String neighbourIndex : routeMapParam.keySet()) { // [Y,X]
+            if (!this.otherNodes.contains(neighbourIndex)) {
+                this.otherNodes.add(neighbourIndex);
+            }
+            whereToGoMap = new HashMap<String, String>();
+            whereToGoMap.put("hop", neighbourIndex);
+            whereToGoMap.put("cost", routeMapParam.get(neighbourIndex));
+            costMap.put(neighbourIndex, whereToGoMap);
+        }
+
+        /* Si existe el vecino, actualizar */
+        if (this.neighbours.containsKey(neighbour)) {
+            this.neighbours.remove(neighbour);
+        }
+        this.neighbours.put(neighbour, costMap);
+
+        /* verificar el costo del vecino si es 99 */
+        if (!this.myNode.contains(neighbour)) {
+            if (this.neighbours.get(this.myNode).get(neighbour).get("cost").contains("99")) {
+                String nuevoCosto = this.neighbours.get(neighbour).get(this.myNode).get("cost");
+                this.neighbours.get(this.myNode).get(neighbour).remove("cost");
+                this.neighbours.get(this.myNode).get(neighbour).remove("hop");
+                this.neighbours.get(this.myNode).get(neighbour).put("cost", nuevoCosto);
+                this.neighbours.get(this.myNode).get(neighbour).put("hop", neighbour);
+            }
+        }
+
+    }
+
+    public void dibujar() {
+        String header = " ".repeat(this.myNode.length()) + " |";
+        // A | A | B | ...
+        String body = this.myNode + " |";
+        // A | CA |
+        Collections.sort(this.otherNodes);
+
+        for (var destino : this.otherNodes) {
+            header += " ".repeat(15) + destino + " ".repeat(15 - destino.length()) + " |";
+        }
+
+        for (var i : this.distanceVectorHashMap.values()) {
+            List<String> sortedList = new ArrayList<String>(i.keySet());
+            Collections.sort(sortedList);
+            for (var destino : sortedList) {
+                String costo = i.get(destino).get("cost") + i.get(destino).get("hop");
+                body += " ".repeat(15) + costo + " ".repeat(15 - costo.length()) + " |";
+            }
+        }
+        log.add("-".repeat(header.length()));
+        log.add(header);
+        log.add("-".repeat(header.length()));
+        log.add(body);
+        log.add("-".repeat(header.length()));
     }
 
     public void calculateBellmanFord() {

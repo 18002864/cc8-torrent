@@ -1,14 +1,13 @@
-   INFO > [25/10/2022 10:03:48] : Conectar! con G: ip 127.0.0.1 puerto 9080
-   INFO > [25/10/2022 10:03:48] : Se conecto con G
-   INFO > [25/10/2022 10:03:48] : Iniciar protocolo con G
-   INFO > [25/10/2022 10:03:48] : Esperando mensaje de G
-   INFO > [25/10/2022 10:03:49] : response --->From:D
-   INFO > [25/10/2022 10:03:49] : G contesto From:D
-   INFO > [25/10/2022 10:03:49] : Esperando mensaje de G
-   INFO > [25/10/2022 10:03:49] : response --->Type:WELCOME
-   INFO > [25/10/2022 10:03:49] : G contesto Type:WELCOME
-   INFO > [25/10/2022 10:03:49] : Saludo completado con G
-   INFO > [25/10/2022 10:03:49] : Transmitir distanceVectorAlgorithm a G
-   INFO > [25/10/2022 10:03:49] : DV From:D Type:DV Len:1 G:5
-   INFO > [25/10/2022 10:03:49] : Se notifico a G marcar como notificado
-WARNING > [25/10/2022 10:04:09] : El vecino G no esta conectado, se desconecta cliente
+   INFO > [25/10/2022 10:06:44] : Conectar! con G: ip 127.0.0.1 puerto 9080
+   INFO > [25/10/2022 10:06:44] : Se conecto con G
+   INFO > [25/10/2022 10:06:44] : Iniciar protocolo con G
+   INFO > [25/10/2022 10:06:44] : Esperando mensaje de G
+   INFO > [25/10/2022 10:06:44] : response --->From:D
+   INFO > [25/10/2022 10:06:44] : G contesto From:D
+   INFO > [25/10/2022 10:06:44] : Esperando mensaje de G
+   INFO > [25/10/2022 10:06:44] : response --->Type:WELCOME
+   INFO > [25/10/2022 10:06:44] : G contesto Type:WELCOME
+   INFO > [25/10/2022 10:06:44] : Saludo completado con G
+   INFO > [25/10/2022 10:06:44] : Transmitir distanceVectorAlgorithm a G
+   INFO > [25/10/2022 10:06:44] : DV From:D Type:DV Len:1 G:5
+   INFO > [25/10/2022 10:06:44] : Se notifico a G marcar como notificado

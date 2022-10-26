@@ -1,8 +1,10 @@
-   INFO > [25/10/2022 10:03:48] : Routing Server en 9080
-   INFO > [25/10/2022 10:03:49] : Request From:D
-   INFO > [25/10/2022 10:03:49] : Request Type:HELLO
-   INFO > [25/10/2022 10:03:49] : this.distanceVectorAlgorithm.updateNeighbourConnected(D,true)
-   INFO > [25/10/2022 10:03:49] : Request From:D
-   INFO > [25/10/2022 10:03:49] : Request Type:DV
-   INFO > [25/10/2022 10:03:49] : Request Len:1
-   INFO > [25/10/2022 10:03:49] : Request G:5
+   INFO > [25/10/2022 10:06:44] : Routing Server en 9080
+   INFO > [25/10/2022 10:06:44] : Request From:D
+   INFO > [25/10/2022 10:06:44] : Request Type:HELLO
+   INFO > [25/10/2022 10:06:44] : this.distanceVectorAlgorithm.updateNeighbourConnected(D,true)
+   INFO > [25/10/2022 10:06:44] : Request From:D
+   INFO > [25/10/2022 10:06:44] : Request Type:DV
+   INFO > [25/10/2022 10:06:44] : Request Len:1
+   INFO > [25/10/2022 10:06:44] : Request G:5
+   INFO > [25/10/2022 10:06:44] : distanceVectorAlgorithm.establecerRutas({G=5} , D)
+   INFO > [25/10/2022 10:06:44] : distanceVectorAlgorithm.calcular({G=5} , D)

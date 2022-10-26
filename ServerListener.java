@@ -56,7 +56,7 @@ public class ServerListener implements Runnable {
                         this.distanceVectorAlgorithm.threadResource.acquire();
                         this.distanceVectorAlgorithm.updateNeighbourConnected(this.vecino, true);
                         this.distanceVectorAlgorithm.threadResource.release();
-                    } else if (type.contains("distanceVectorAlgorithm")) {
+                    } else if (type.contains("DV")) {
                         this.leerDistanceVectorVecino(inSocket, this.vecino);
                     } else if (type.contains("KeepAlive")) {
                         this.log.add("KeepAlive de " + this.vecino);

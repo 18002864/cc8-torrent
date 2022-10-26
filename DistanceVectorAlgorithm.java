@@ -74,12 +74,53 @@ public class DistanceVectorAlgorithm {
     public void init() {
         readConfigFile();
         log.add("My Node ---> " + myNode);
-        distanceVectorAlgorithm(myNode, true);
+        distanceVectorAlgorithm(this.routeMap, myNode, true);
         stablishRoutes(this.routeMap, myNode);
+        log.add("this.vecinoNotificado=" + this.neighbourNotify);
+        log.add("this.vecinoConectado=" + this.neighbourConnected);
+        log.add("this.vecinoEscuchando=" + this.neighbourListening);
+        changesFlag = true;
+        log.add("this.hayCambios=" + changesFlag);
         dibujar();
+
+        Timer timer = new Timer();
+        // para monitorear el distance vector
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    if (changesFlag) {
+                        Integer len = neighbourNotify.size();
+                        Integer acc = 0;
+                        for (String vecinoi : neighbourNotify.keySet()) {
+                            if (!neighbourNotify.get(vecinoi)) {
+                                if (!neighbourNotify.get(vecinoi)) {
+                                    // si no esta conectado, poner como notificado
+                                    neighbourNotify.replace(vecinoi, true);
+                                }
+                            }
+                            acc += neighbourNotify.get(vecinoi) ? 1 : 0;
+                        }
+                        if (len == acc) {
+                            changesFlag = false; // si todos han sido notificados, entonces reset de la variable
+                        }
+                    }
+                    log.add(" ------------- Monitoreo ------------- ");
+                    log.add("Notificados " + neighbourNotify);
+                    log.add("Conectados " + neighbourConnected);
+                    log.add("Escuchando " + neighbourListening);
+                    log.add("Cambios en el Distance Vector " + changesFlag);
+                    dibujar();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        timer.schedule(task, (15000), (15000));
+
     }
 
-    public void distanceVectorAlgorithm(String node, Boolean firstTime) {
+    public void distanceVectorAlgorithm(HashMap<String, String> datos, String node, Boolean firstTime) {
 
         HashMap<String, HashMap<String, String>> costMap = new HashMap<String, HashMap<String, String>>();
         HashMap<String, String> whereToGoMap = new HashMap<String, String>();
@@ -93,17 +134,17 @@ public class DistanceVectorAlgorithm {
         costMap.put(node, whereToGoMap);
 
         /* Agregar mis vecinos */
-        for (String nodeFromRouteMap : routeMap.keySet()) {
+        for (String nodeFromRouteMap : datos.keySet()) {
             if (!this.otherNodes.contains(nodeFromRouteMap)) {
                 this.otherNodes.add(nodeFromRouteMap);
             }
             whereToGoMap = new HashMap<String, String>();
-            if (routeMap.get(nodeFromRouteMap).contains("99")) {
+            if (datos.get(nodeFromRouteMap).contains("99")) {
                 whereToGoMap.put("hop", "");
             } else {
                 whereToGoMap.put("hop", nodeFromRouteMap);
             }
-            whereToGoMap.put("cost", routeMap.get(nodeFromRouteMap));
+            whereToGoMap.put("cost", datos.get(nodeFromRouteMap));
             costMap.put(nodeFromRouteMap, whereToGoMap);
             /* Inicializar variables para control */
             if (firstTime) {
@@ -184,8 +225,113 @@ public class DistanceVectorAlgorithm {
         log.add("-".repeat(header.length()));
     }
 
-    public void calculateBellmanFord() {
+    public void calculateBellmanFord(String node) {
+        /* Version antes del calculo */
+        String antes = this.distanceVectorHashMap.toString();
+        this.log.warning("Antes " + antes);
 
+        /* Recorro todos los destinos */
+        for (String destino : otherNodes) {
+            HashMap<String, String> atraves = new HashMap<String, String>();
+            // si el destino no esta en mi dv, inicializarlo con infinito
+            if (!this.distanceVectorHashMap.get(this.myNode).containsKey(destino)) {
+                atraves = new HashMap<String, String>();
+                atraves.put("cost", "99");
+                atraves.put("hop", "");
+                this.distanceVectorHashMap.get(this.myNode).put(destino, atraves);
+            }
+            /* Algoritmo de Bellman-Ford */
+
+            // Dx(Y)
+            String linea = "";
+            linea += "D" + this.myNode + "(" + destino + ")";
+            // C(x,v)
+            linea += " = C(" + this.myNode + "," + node + ") : ";
+            int c_me_to_vecino = 99;
+            if (this.neighbours.get(this.myNode).containsKey(node)) {
+                c_me_to_vecino = Integer.parseInt(this.neighbours.get(this.myNode).get(node).get("cost"));
+            }
+            linea += c_me_to_vecino + " + ";
+            // Dv(y)
+            linea += "D" + node + "(" + destino + ") : ";
+            int c_vecino_to_dest = 99;
+            if (this.neighbours.get(node).containsKey(destino)) {
+                c_vecino_to_dest = Integer.parseInt(this.neighbours.get(node).get(destino).get("cost"));
+            }
+            linea += Integer.toString(c_vecino_to_dest);
+            // Total
+            int total = (c_me_to_vecino + c_vecino_to_dest) > 99 ? 99 : (c_me_to_vecino + c_vecino_to_dest);
+            linea += " Total: " + total;
+            this.log.add(linea);
+            // Comparar el costo y actualizar si fuera necesario en el DV
+            int costoActual = Integer.parseInt(this.distanceVectorHashMap.get(this.myNode).get(destino).get("cost"));
+            if (total < costoActual) {
+                this.distanceVectorHashMap.get(this.myNode).remove(destino);
+                atraves = new HashMap<String, String>();
+                atraves.put("cost", Integer.toString(total));
+                atraves.put("hop", node);
+                this.distanceVectorHashMap.get(this.myNode).put(destino, atraves);
+            }
+        }
+        /* Evaluar si hubieron cambios e indicar si los hay */
+        String despues = this.distanceVectorHashMap.toString();
+        this.log.warning("Despues " + despues);
+        if (!antes.equals(despues)) {
+            this.updateChangeNeighbourNotify();
+        }
+    }
+
+    public void updateNeighbourListening(String vecino, Boolean escuchando) {
+        if (this.neighbourListening.containsKey(vecino)) {
+            this.neighbourListening.remove(vecino);
+        }
+        this.neighbourListening.put(vecino, escuchando);
+    }
+
+    public void updateNeighbourNotify(String vecino, Boolean notificado) {
+        if (this.neighbourNotify.containsKey(vecino)) {
+            this.neighbourNotify.remove(vecino);
+        }
+        this.neighbourNotify.put(vecino, notificado);
+    }
+
+    public void updateNeighbourConnected(String vecino, Boolean conectado) {
+        if (this.neighbourConnected.containsKey(vecino)) {
+            this.neighbourConnected.remove(vecino);
+        }
+        this.neighbourConnected.put(vecino, conectado);
+    }
+
+    public void updateChangeNeighbourNotify() {
+        this.changesFlag = true;
+        LinkedList<String> temp = new LinkedList<String>();
+        for (var vecino : this.neighbourNotify.keySet()) {
+            temp.add(vecino);
+        }
+        for (var vecino : temp) {
+            this.neighbourNotify.remove(vecino);
+            this.neighbourNotify.put(vecino, false);
+        }
+    }
+
+    public void updateNeighbourCost(String vecino, String costo) {
+        HashMap<String, String> datos = new HashMap<String, String>();
+        this.log.warning("Actualizar costo " + costo + " de " + vecino);
+        // poner el costo en mi ruta
+        for (String vecinoi : this.neighbours.get(this.myNode).keySet()) {
+            if (!this.myNode.contains(vecinoi)) { // no agregarme a mi mismo
+                if (vecinoi.equals(vecino)) {
+                    datos.put(vecinoi, costo);
+                } else {
+                    String costooriginal = this.neighbours.get(this.myNode).get(vecinoi).get("costo");
+                    datos.put(vecinoi, costooriginal);
+                }
+            }
+        }
+        this.distanceVectorAlgorithm(datos, this.myNode, false);
+        this.stablishRoutes(datos, this.myNode);
+        this.updateChangeNeighbourNotify();
+        this.log.warning("Fin actualizar costo " + costo + " de " + vecino);
     }
 
 }

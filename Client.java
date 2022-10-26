@@ -9,56 +9,58 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 
-public class Client {
-    public static void main(String args[]) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        String message = "";
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        Socket socket;
-        String host = "127.0.0.1";
-        int port = 8080;
+public class Client implements Runnable {
 
-        try {
-            socket = new Socket(host, port);
+    Integer conection = 5;
+    Integer retransmission = 30;
+    Log log = null;
+    DistanceVectorAlgorithm distanceVectorAlgorithm = null;
 
-            DataInputStream socket_input = new DataInputStream(socket.getInputStream());
-            DataOutput socket_output = new DataOutputStream(socket.getOutputStream());
+    public Client(
+            Integer wait_conection,
+            Integer wait_retransmission,
+            Log log,
+            DistanceVectorAlgorithm distanceVectorAlgorithm) {
+        this.conection = wait_conection;
+        this.retransmission = wait_retransmission;
+        this.log = log;
+        this.distanceVectorAlgorithm = distanceVectorAlgorithm;
+    }
 
-            while (!message.startsWith("EXIT")) {
-                System.out.print("Ingrese cadena: ");
-                message = bufferedReader.readLine();
+    public void run() {
 
-                // System.out.println(
-                // "> "
-                // + socket.getLocalAddress().toString().split("/")[1]
-                // + " client "
-                // + "["
-                // + dateFormat.format(new Date())
-                // + "]");
-
-                // System.out.println("TCP: " + message + "");
-
-                String info = "From:" + "Client";
-                info += "\n" + "To:" + "Server";
-                info += "\n" + "Name:" + message;
-                info += "\n" + "Size:" + message.length();
-                info += "\n" + "EOF";
-
-                socket_output.writeUTF(info);
-
-                // System.out.println(
-                // "< "
-                // + socket.getInetAddress().toString().split("/")[1]
-                // + " server "
-                // + "["
-                // + dateFormat.format(new Date()) + "]");
-                // System.out.println(socket_input.readUTF());
-
+        for (var vecino : distanceVectorAlgorithm.hostNeighbours.keySet()) {
+            if (!distanceVectorAlgorithm.neighbourListening.get(vecino)) {
+                String ip = this.distanceVectorAlgorithm.hostNeighbours.get(vecino).get("ip");
+                Integer port = Integer.parseInt(this.distanceVectorAlgorithm.hostNeighbours.get(vecino).get("port"));
+                this.log.add("Conectar! con " + vecino + ": ip " + ip + " puerto " + port);
+                ClientListener client = new ClientListener(ip, port, this.distanceVectorAlgorithm, this.conection,
+                        this.log, vecino,
+                        this.retransmission);
+                new Thread(client).start();
             }
-            System.out.println("[" + dateFormat.format(new Date()) + "] Server Stop");
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
+        Long now = System.currentTimeMillis();
+        while (true) {
+            if (System.currentTimeMillis() - now >= (10 * 1000)) {
+                for (var vecino : distanceVectorAlgorithm.hostNeighbours.keySet()) {
+                    if (distanceVectorAlgorithm.neighbourConnected.get(vecino)
+                            && !distanceVectorAlgorithm.neighbourListening.get(vecino)) {
+                        String ip = this.distanceVectorAlgorithm.hostNeighbours.get(vecino).get("ip");
+                        Integer port = Integer
+                                .parseInt(this.distanceVectorAlgorithm.hostNeighbours.get(vecino).get("port"));
+                        this.log.add("Conectar con " + vecino + ": ip " + ip + " puerto " + port);
+                        ClientListener client = new ClientListener(ip, port, this.distanceVectorAlgorithm,
+                                this.conection,
+                                this.log,
+                                vecino, this.retransmission);
+                        new Thread(client).start();
+                    }
+                }
+                now = System.currentTimeMillis();
+            }
+        }
     }
+
 }

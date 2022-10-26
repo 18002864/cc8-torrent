@@ -7,31 +7,42 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Server {
+public class Server implements Runnable {
+    Log log = null;
+    Integer port = 0;
+    Integer wait_reconnection = 1;
+    ServerSocket socketServer;
+    DistanceVectorAlgorithm distanceVectorAlgorithm;
+    ClientListener clientListener;
 
-    public static void main(String args[]) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        String message = "";
-        ServerSocket serverSocket;
-        int port = 8080;
+    public Server(
+            Log log,
+            Integer port,
+            Integer wait_reconnection,
+            DistanceVectorAlgorithm distanceVectorAlgorithm) {
+        this.log = log;
+        this.port = port;
+        this.wait_reconnection = wait_reconnection;
+        this.distanceVectorAlgorithm = distanceVectorAlgorithm;
+    }
 
+    public void run() {
         try {
-            serverSocket = new ServerSocket(port);
-            Socket socket_listener = serverSocket.accept();
-
-            DataInputStream socket_input = new DataInputStream(socket_listener.getInputStream());
-            DataOutput socket_output = new DataOutputStream(socket_listener.getOutputStream());
-
-            while (!message.startsWith("EXIT")) {
-                message = socket_input.readUTF();
-
-                System.out.println("[" + dateFormat.format(new Date()) + "]");
-                System.out.println(message);
-                socket_output.writeUTF(message);
-
+            log.add("Routing Server en " + this.port);
+            socketServer = new ServerSocket(this.port);
+            while (true) {
+                try {
+                    ServerListener server = new ServerListener(
+                            this.socketServer.accept(),
+                            this.distanceVectorAlgorithm,
+                            this.wait_reconnection,
+                            this.log);
+                    new Thread(server).start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            System.out.println("[" + dateFormat.format(new Date()) + "] Server Stop");
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -2,8 +2,6 @@ import java.io.*;
 import java.util.*;
 import java.util.concurrent.Semaphore;
 
-import javax.print.DocFlavor.STRING;
-
 public class DistanceVectorAlgorithm {
 
     // representa que nodo soy en la topologia

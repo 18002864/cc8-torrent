@@ -2,8 +2,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import app.App;
-
 public class Torrent {
     public static void main(String[] arg) throws Exception {
 

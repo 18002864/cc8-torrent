@@ -36,28 +36,20 @@ public class ServerListener implements Runnable {
                 String request = inSocket.readLine();
                 if (request == null)
                     break;
-                // this.log.add("Request ??? " + request);
                 if (request.contains("From:")) {
                     String[] arequest = request.split(":");
                     this.vecino = arequest[1];
-                    // this.log.add("Neighbour " + vecino);
                     continue;
                 } else if (request.contains("Type")) {
                     String[] arequest = request.split(":");
                     String type = arequest[1];
                     this.log.add("Node " + this.vecino + " answer " + arequest[1]);
                     if (type.contains("HELLO")) {
-                        /*
-                         * outSocket.println("From:" + distanceVectorAlgorithm.myNode);
-                         * outSocket.println("Type:WELCOME");
-                         */
+
                         String test = "From:" + distanceVectorAlgorithm.myNode;
                         test += "\n" + "Type:WELCOME";
                         outSocket.println(test);
-                        // this.log.add(
-                        // "this.distanceVectorAlgorithm.updateNeighbourConnected(" + this.vecino + ","
-                        // + true
-                        // + ")");
+
                         this.distanceVectorAlgorithm.threadResource.acquire();
                         this.distanceVectorAlgorithm.updateNeighbourConnected(this.vecino, true);
                         this.distanceVectorAlgorithm.threadResource.release();
@@ -80,8 +72,7 @@ public class ServerListener implements Runnable {
                     if (System.currentTimeMillis() - now >= (this.wait_reconnection * 1000)) {
                         if (!this.distanceVectorAlgorithm.neighbourConnected.get(this.vecino)) {
                             log.add("Cannot reconnect with node " + this.vecino);
-                            // log.add("this.distanceVectorAlgorithm.updateNeighbourCost(" + this.vecino +
-                            // ",99);");
+
                             this.distanceVectorAlgorithm.threadResource.acquire();
                             this.distanceVectorAlgorithm.updateNeighbourCost(this.vecino, "99");
                             this.distanceVectorAlgorithm.threadResource.release();
@@ -111,10 +102,8 @@ public class ServerListener implements Runnable {
                     while (true) {
                         if (System.currentTimeMillis() - now >= (this.wait_reconnection * 1000)) {
                             if (!this.distanceVectorAlgorithm.neighbourConnected.get(this.vecino)) {
-                                // log.add("No se recupero conexion con " + this.vecino);
+
                                 this.log.add("Cannot reconnect with neighbour" + this.vecino);
-                                // log.add("this.distanceVectorAlgorithm.updateNeighbourCost(" + this.vecino +
-                                // ",99);");
                                 this.distanceVectorAlgorithm.threadResource.acquire();
                                 this.distanceVectorAlgorithm.updateNeighbourCost(this.vecino, "99");
                                 this.distanceVectorAlgorithm.threadResource.release();

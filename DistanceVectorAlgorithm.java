@@ -100,11 +100,6 @@ public class DistanceVectorAlgorithm {
                             changesFlag = false; // si todos han sido notificados, entonces reset de la variable
                         }
                     }
-                    // log.add(" ------------- Monitoreo ------------- ");
-                    // log.add("Notificados " + neighbourNotify);
-                    // log.add("Conectados " + neighbourConnected);
-                    // log.add("Escuchando " + neighbourListening);
-                    // log.add("Cambios en el Distance Vector " + changesFlag);
                     printTablesOfControl();
                     printTableOfCostAndHop();
                 } catch (Exception e) {
@@ -310,16 +305,10 @@ public class DistanceVectorAlgorithm {
 
     // prints de control
     public void printTableOfCostAndHop() {
-        // String header = " ".repeat(this.myNode.length()) + " |";
         // A | A | B | ...
         String body = this.myNode + " ---> ";
         // A | CA |
         Collections.sort(this.otherNodes);
-
-        // for (var destino : this.otherNodes) {
-        // header += " ".repeat(15) + destino + " ".repeat(15 - destino.length()) + "
-        // |";
-        // }
 
         for (var i : this.distanceVectorHashMap.values()) {
             List<String> sortedList = new ArrayList<String>(i.keySet());
@@ -329,15 +318,11 @@ public class DistanceVectorAlgorithm {
                 body += " " + costo;
             }
         }
-        // log.add("-".repeat(header.length()));
-        // log.add(header);
-        // log.add("-".repeat(header.length()));
         log.add("");
         log.add("---- Cost And Hop Table ----");
         log.add(body);
         log.add("---- Cost And Hop Table ----");
         log.add("");
-        // log.add("-".repeat(header.length()));
     }
 
     public void printTablesOfControl() {

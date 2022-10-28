@@ -62,14 +62,10 @@ public class ClientListener implements Runnable {
                 this.log.add("");
                 this.log.add("---- Greetings Process Started ---- ");
 
-                // this.log.add("Connected with Node ----> " + this.vecino);
                 PrintWriter outSocket = new PrintWriter(socket.getOutputStream(), true);
                 BufferedReader inSocket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 this.log.add("Initialize protocol with Node " + this.vecino);
-                /*
-                 * outSocket.println("From:" + this.distanceVectorAlgorithm.minodo);
-                 * outSocket.println("Type:HELLO");
-                 */
+
                 String typeMessage = "Type:HELLO";
                 String test = "From:" + distanceVectorAlgorithm.myNode;
                 test += "\n" + typeMessage;
@@ -119,10 +115,6 @@ public class ClientListener implements Runnable {
                                     this.distanceVectorToOtherNodes(outSocket);
                                 } else {
                                     log.add("Transmiting Keep Alive to " + this.vecino);
-                                    /*
-                                     * outSocket.println("From:" + distanceVectorAlgorithm.minodo);
-                                     * outSocket.println("Type:KeepAlive");
-                                     */
                                     test = "From:" + distanceVectorAlgorithm.myNode;
                                     test += "\n" + "Type:KeepAlive";
                                     outSocket.println(test);
@@ -176,21 +168,13 @@ public class ClientListener implements Runnable {
 
             this.log.add("Transmit Distance Vectors to Node " + this.vecino);
 
-            // log.add("Transmitir distanceVectorAlgorithm a " + this.vecino);
             String test = "From:" + distanceVectorAlgorithm.myNode;
             test += "\n" + "Type:DV";
             test += "\n" + "Len:"
                     + (distanceVectorAlgorithm.distanceVectorHashMap.get(distanceVectorAlgorithm.myNode).size() - 1);
-            // this.log.add("que sale? vecinoi ---->" + vecinoi);
-            // test += "\n" + "que sale? distanceVectorAlgorithm.myNode ---->" +
-            // distanceVectorAlgorithm.myNode;
-            // this.log.add("que sale?" + !vecinoi.equals(distanceVectorAlgorithm.myNode));
+
             for (String vecinoi : distanceVectorAlgorithm.distanceVectorHashMap.get(distanceVectorAlgorithm.myNode)
                     .keySet()) {
-                // this.log.add("que sale? vecinoi ---->" + vecinoi);
-                // this.log.add("que sale? distanceVectorAlgorithm.myNode ---->" +
-                // distanceVectorAlgorithm.myNode);
-                // this.log.add("que sale?" + !vecinoi.equals(distanceVectorAlgorithm.myNode));
 
                 if (!vecinoi.equals(distanceVectorAlgorithm.myNode)) {
                     test += "\n" + vecinoi + ":" + distanceVectorAlgorithm.distanceVectorHashMap

@@ -21,8 +21,12 @@ public class Server implements Runnable {
 
     public void run() {
         try {
-            log.add("Routing Server en " + this.port);
+            this.log.add("");
+            this.log.add("---- Server ---- ");
+            log.add("Server running in " + this.port);
             socketServer = new ServerSocket(this.port);
+            this.log.add("---- Server ---- ");
+            this.log.add("");
             while (true) {
                 try {
                     ServerListener server = new ServerListener(

@@ -1,0 +1,74 @@
+   INFO  2022-10-27 07:37:53  My Node ---> D
+   INFO  2022-10-27 07:37:53  
+   INFO  2022-10-27 07:37:53  ---- Control Table ----
+   INFO  2022-10-27 07:37:53  Changes in map ---> true
+   INFO  2022-10-27 07:37:53  Neighbours Notify Table ---> {G=false}
+   INFO  2022-10-27 07:37:53  Neighbours Connected Table ---> {G=false}
+   INFO  2022-10-27 07:37:53  Neighbours Listening Table ---> {G=false}
+   INFO  2022-10-27 07:37:53  ---- Control Table ----
+   INFO  2022-10-27 07:37:53  
+   INFO  2022-10-27 07:37:53  
+   INFO  2022-10-27 07:37:53  ---- Cost And Hop Table ----
+   INFO  2022-10-27 07:37:53  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-10-27 07:37:53  ---- Cost And Hop Table ----
+   INFO  2022-10-27 07:37:53  
+   INFO  2022-10-27 07:37:54  
+   INFO  2022-10-27 07:37:54  ---- Bellman Ford ----
+   INFO  2022-10-27 07:37:54  Antes {D={D={cost=0, hop=D}, G={cost=5, hop=G}}}
+   INFO  2022-10-27 07:37:54  DD(D) = C(D,D) : 0 + DD(D) : 0 Total: 0
+   INFO  2022-10-27 07:37:54  DD(G) = C(D,D) : 0 + DD(G) : 5 Total: 5
+   INFO  2022-10-27 07:37:54  Despues {D={D={cost=0, hop=D}, G={cost=5, hop=G}}}
+   INFO  2022-10-27 07:37:54  ---- Bellman Ford ----
+   INFO  2022-10-27 07:37:54  
+   INFO  2022-10-27 07:38:08  
+   INFO  2022-10-27 07:38:08  ---- Control Table ----
+   INFO  2022-10-27 07:38:08  Changes in map ---> false
+   INFO  2022-10-27 07:38:08  Neighbours Notify Table ---> {G=true}
+   INFO  2022-10-27 07:38:08  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-10-27 07:38:08  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-10-27 07:38:08  ---- Control Table ----
+   INFO  2022-10-27 07:38:08  
+   INFO  2022-10-27 07:38:08  
+   INFO  2022-10-27 07:38:08  ---- Cost And Hop Table ----
+   INFO  2022-10-27 07:38:08  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-10-27 07:38:08  ---- Cost And Hop Table ----
+   INFO  2022-10-27 07:38:08  
+   INFO  2022-10-27 07:38:23  
+   INFO  2022-10-27 07:38:23  ---- Control Table ----
+   INFO  2022-10-27 07:38:23  Changes in map ---> false
+   INFO  2022-10-27 07:38:23  Neighbours Notify Table ---> {G=true}
+   INFO  2022-10-27 07:38:23  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-10-27 07:38:23  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-10-27 07:38:23  ---- Control Table ----
+   INFO  2022-10-27 07:38:23  
+   INFO  2022-10-27 07:38:23  
+   INFO  2022-10-27 07:38:23  ---- Cost And Hop Table ----
+   INFO  2022-10-27 07:38:23  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-10-27 07:38:23  ---- Cost And Hop Table ----
+   INFO  2022-10-27 07:38:23  
+   INFO  2022-10-27 07:38:38  
+   INFO  2022-10-27 07:38:38  ---- Control Table ----
+   INFO  2022-10-27 07:38:38  Changes in map ---> false
+   INFO  2022-10-27 07:38:38  Neighbours Notify Table ---> {G=true}
+   INFO  2022-10-27 07:38:38  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-10-27 07:38:38  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-10-27 07:38:38  ---- Control Table ----
+   INFO  2022-10-27 07:38:38  
+   INFO  2022-10-27 07:38:38  
+   INFO  2022-10-27 07:38:38  ---- Cost And Hop Table ----
+   INFO  2022-10-27 07:38:38  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-10-27 07:38:38  ---- Cost And Hop Table ----
+   INFO  2022-10-27 07:38:38  
+   INFO  2022-10-27 07:38:53  
+   INFO  2022-10-27 07:38:53  ---- Control Table ----
+   INFO  2022-10-27 07:38:53  Changes in map ---> false
+   INFO  2022-10-27 07:38:53  Neighbours Notify Table ---> {G=true}
+   INFO  2022-10-27 07:38:53  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-10-27 07:38:53  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-10-27 07:38:53  ---- Control Table ----
+   INFO  2022-10-27 07:38:53  
+   INFO  2022-10-27 07:38:53  
+   INFO  2022-10-27 07:38:53  ---- Cost And Hop Table ----
+   INFO  2022-10-27 07:38:53  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-10-27 07:38:53  ---- Cost And Hop Table ----
+   INFO  2022-10-27 07:38:53  

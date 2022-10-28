@@ -74,12 +74,9 @@ public class DistanceVectorAlgorithm {
         log.add("My Node ---> " + myNode);
         distanceVectorAlgorithm(this.routeMap, myNode, true);
         stablishRoutes(this.routeMap, myNode);
-        log.add("this.vecinoNotificado=" + this.neighbourNotify);
-        log.add("this.vecinoConectado=" + this.neighbourConnected);
-        log.add("this.vecinoEscuchando=" + this.neighbourListening);
         changesFlag = true;
-        log.add("this.hayCambios=" + changesFlag);
-        dibujar();
+        printTablesOfControl();
+        printTableOfCostAndHop();
 
         Timer timer = new Timer();
         // para monitorear el distance vector
@@ -103,12 +100,13 @@ public class DistanceVectorAlgorithm {
                             changesFlag = false; // si todos han sido notificados, entonces reset de la variable
                         }
                     }
-                    log.add(" ------------- Monitoreo ------------- ");
-                    log.add("Notificados " + neighbourNotify);
-                    log.add("Conectados " + neighbourConnected);
-                    log.add("Escuchando " + neighbourListening);
-                    log.add("Cambios en el Distance Vector " + changesFlag);
-                    dibujar();
+                    // log.add(" ------------- Monitoreo ------------- ");
+                    // log.add("Notificados " + neighbourNotify);
+                    // log.add("Conectados " + neighbourConnected);
+                    // log.add("Escuchando " + neighbourListening);
+                    // log.add("Cambios en el Distance Vector " + changesFlag);
+                    printTablesOfControl();
+                    printTableOfCostAndHop();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -197,36 +195,12 @@ public class DistanceVectorAlgorithm {
 
     }
 
-    public void dibujar() {
-        String header = " ".repeat(this.myNode.length()) + " |";
-        // A | A | B | ...
-        String body = this.myNode + " |";
-        // A | CA |
-        Collections.sort(this.otherNodes);
-
-        for (var destino : this.otherNodes) {
-            header += " ".repeat(15) + destino + " ".repeat(15 - destino.length()) + " |";
-        }
-
-        for (var i : this.distanceVectorHashMap.values()) {
-            List<String> sortedList = new ArrayList<String>(i.keySet());
-            Collections.sort(sortedList);
-            for (var destino : sortedList) {
-                String costo = i.get(destino).get("cost") + i.get(destino).get("hop");
-                body += " ".repeat(15) + costo + " ".repeat(15 - costo.length()) + " |";
-            }
-        }
-        log.add("-".repeat(header.length()));
-        log.add(header);
-        log.add("-".repeat(header.length()));
-        log.add(body);
-        log.add("-".repeat(header.length()));
-    }
-
     public void calculateBellmanFord(String node) {
         /* Version antes del calculo */
         String antes = this.distanceVectorHashMap.toString();
-        this.log.warning("Antes " + antes);
+        log.add("");
+        log.add("---- Bellman Ford ----");
+        this.log.add("Antes " + antes);
 
         /* Recorro todos los destinos */
         for (String destino : otherNodes) {
@@ -273,7 +247,9 @@ public class DistanceVectorAlgorithm {
         }
         /* Evaluar si hubieron cambios e indicar si los hay */
         String despues = this.distanceVectorHashMap.toString();
-        this.log.warning("Despues " + despues);
+        this.log.add("Despues " + despues);
+        log.add("---- Bellman Ford ----");
+        log.add("");
         if (!antes.equals(despues)) {
             this.updateChangeNeighbourNotify();
         }
@@ -330,6 +306,49 @@ public class DistanceVectorAlgorithm {
         this.stablishRoutes(datos, this.myNode);
         this.updateChangeNeighbourNotify();
         this.log.warning("Fin actualizar costo " + costo + " de " + vecino);
+    }
+
+    // prints de control
+    public void printTableOfCostAndHop() {
+        // String header = " ".repeat(this.myNode.length()) + " |";
+        // A | A | B | ...
+        String body = this.myNode + " ---> ";
+        // A | CA |
+        Collections.sort(this.otherNodes);
+
+        // for (var destino : this.otherNodes) {
+        // header += " ".repeat(15) + destino + " ".repeat(15 - destino.length()) + "
+        // |";
+        // }
+
+        for (var i : this.distanceVectorHashMap.values()) {
+            List<String> sortedList = new ArrayList<String>(i.keySet());
+            Collections.sort(sortedList);
+            for (var destino : sortedList) {
+                String costo = " Hop " + i.get(destino).get("hop") + " Cost " + i.get(destino).get("cost") + ",";
+                body += " " + costo;
+            }
+        }
+        // log.add("-".repeat(header.length()));
+        // log.add(header);
+        // log.add("-".repeat(header.length()));
+        log.add("");
+        log.add("---- Cost And Hop Table ----");
+        log.add(body);
+        log.add("---- Cost And Hop Table ----");
+        log.add("");
+        // log.add("-".repeat(header.length()));
+    }
+
+    public void printTablesOfControl() {
+        log.add("");
+        log.add("---- Control Table ----");
+        log.add("Changes in map ---> " + changesFlag);
+        log.add("Neighbours Notify Table ---> " + this.neighbourNotify);
+        log.add("Neighbours Connected Table ---> " + this.neighbourConnected);
+        log.add("Neighbours Listening Table ---> " + this.neighbourListening);
+        log.add("---- Control Table ----");
+        log.add("");
     }
 
 }

@@ -58,54 +58,67 @@ public class ClientListener implements Runnable {
         conectar();
         try {
             if (this.socket != null) {
-                this.log.add("Se conecto con " + this.vecino);
+
+                this.log.add("");
+                this.log.add("---- Greetings Process Started ---- ");
+
+                // this.log.add("Connected with Node ----> " + this.vecino);
                 PrintWriter outSocket = new PrintWriter(socket.getOutputStream(), true);
                 BufferedReader inSocket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                this.log.add("Iniciar protocolo con " + this.vecino);
+                this.log.add("Initialize protocol with Node " + this.vecino);
                 /*
                  * outSocket.println("From:" + this.distanceVectorAlgorithm.minodo);
                  * outSocket.println("Type:HELLO");
                  */
+                String typeMessage = "Type:HELLO";
                 String test = "From:" + distanceVectorAlgorithm.myNode;
-                test += "\n" + "Type:HELLO";
+                test += "\n" + typeMessage;
+                this.log.add("Sending message " + typeMessage);
                 outSocket.println(test);
                 // esperar welcome
                 Boolean welcome = false;
                 String vecino = "";
                 while (!welcome) {
-                    this.log.add("Esperando mensaje de " + this.vecino);
+                    this.log.add("Waiting message from " + this.vecino);
                     String response = inSocket.readLine();
-                    this.log.add("response --->" + response);
-                    this.log.add(this.vecino + " contesto " + response);
+                    // this.log.add("response --->" + response);
                     if (response.contains("From")) {
                         String[] aresponse = response.split(":");
                         vecino = aresponse[1];
                         continue;
                     } else if (response.contains("Type")) {
                         String[] aresponse = response.split(":");
+                        this.log.add("Node " + this.vecino + " answer " + aresponse[1]);
                         if (aresponse[1].contains("WELCOME")) {
                             welcome = true;
-                            this.log.add("Saludo completado con " + this.vecino);
+                            this.log.add("Greetings completed with node " + this.vecino);
                             distanceVectorAlgorithm.threadResource.acquire();
                             this.distanceVectorAlgorithm.updateNeighbourListening(vecino, true);
                             distanceVectorAlgorithm.threadResource.release();
                         }
                     }
                 }
+                this.log.add("---- Greetings Process Finish ---- ");
+                this.log.add("");
 
-                this.transmitirdv(outSocket); // la primera vez transmitir el distanceVectorAlgorithm de una!
+                this.distanceVectorToOtherNodes(outSocket); // la primera vez transmitir el distanceVectorAlgorithm de
+                                                            // una!
                 Long now = System.currentTimeMillis();
                 while (true) {
                     if (System.currentTimeMillis() - now >= (this.wait_retransmission) * 1000) {
                         if (distanceVectorAlgorithm.neighbourConnected.get(this.vecino)) {
                             if (distanceVectorAlgorithm.neighbourListening.get(this.vecino)) {
-                                log.add("El vecino " + this.vecino + " esta escuchando ");
-                                log.add("Transmitir a " + this.vecino);
+
+                                this.log.add("");
+                                this.log.add("---- Keep Alive Process Started ---- ");
+
+                                log.add("Neighbour " + this.vecino + " is listening ");
+                                // log.add("Transmitir a " + this.vecino);
                                 if (distanceVectorAlgorithm.changesFlag
                                         && !distanceVectorAlgorithm.neighbourNotify.get(this.vecino)) {
-                                    this.transmitirdv(outSocket);
+                                    this.distanceVectorToOtherNodes(outSocket);
                                 } else {
-                                    log.add("Transmitir KA a " + this.vecino);
+                                    log.add("Transmiting Keep Alive to " + this.vecino);
                                     /*
                                      * outSocket.println("From:" + distanceVectorAlgorithm.minodo);
                                      * outSocket.println("Type:KeepAlive");
@@ -113,38 +126,57 @@ public class ClientListener implements Runnable {
                                     test = "From:" + distanceVectorAlgorithm.myNode;
                                     test += "\n" + "Type:KeepAlive";
                                     outSocket.println(test);
+                                    this.log.add("---- Keep Alive Process Finish ---- ");
+                                    this.log.add("");
                                 }
                                 now = System.currentTimeMillis(); // reset timer
                             } else {
-                                log.warning("El vecino " + this.vecino + " no esta escuchando ");
+                                this.log.add("");
+                                this.log.add("---- Keep Alive Process Error ---- ");
+                                log.warning("Neighbour " + this.vecino + " is not listening ");
                                 this.distanceVectorAlgorithm.threadResource.acquire();
                                 this.distanceVectorAlgorithm.updateNeighbourListening(this.vecino, false);
                                 this.distanceVectorAlgorithm.threadResource.release();
+                                this.log.add("---- Keep Alive Process Error ---- ");
+                                this.log.add("");
                                 break; // terminar este thread
                             }
                         } else {
-                            log.warning("El vecino " + this.vecino + " no esta conectado, se desconecta cliente");
+                            this.log.add("");
+                            this.log.add("---- Keep Alive Process Error ---- ");
+                            log.warning("Neighbour " + this.vecino + " is not connected, rejecting client");
                             this.distanceVectorAlgorithm.threadResource.acquire();
                             this.distanceVectorAlgorithm.updateNeighbourListening(this.vecino, false);
                             this.distanceVectorAlgorithm.threadResource.release();
+                            this.log.add("---- Keep Alive Process Error ---- ");
+                            this.log.add("");
                             break; // terminar este thread
                         }
                     }
                 }
             } else {
-                this.log.warning("No se conecto con " + this.vecino + " marcar como notificado");
+                this.log.add("");
+                this.log.add("---- Keep Alive Process Error ---- ");
+                this.log.warning("Neighbour cannot be reached " + this.vecino + " marked as notified");
                 distanceVectorAlgorithm.threadResource.acquire();
                 distanceVectorAlgorithm.updateNeighbourNotify(this.vecino, true);
                 distanceVectorAlgorithm.threadResource.release();
+                this.log.add("---- Keep Alive Process Error ---- ");
+                this.log.add("");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void transmitirdv(PrintWriter outSocket) {
+    public void distanceVectorToOtherNodes(PrintWriter outSocket) {
         try {
-            log.add("Transmitir distanceVectorAlgorithm a " + this.vecino);
+            this.log.add("");
+            this.log.add("---- Distance Vector Process Started ---- ");
+
+            this.log.add("Transmit Distance Vectors to Node " + this.vecino);
+
+            // log.add("Transmitir distanceVectorAlgorithm a " + this.vecino);
             String test = "From:" + distanceVectorAlgorithm.myNode;
             test += "\n" + "Type:DV";
             test += "\n" + "Len:"
@@ -168,10 +200,14 @@ public class ClientListener implements Runnable {
 
             outSocket.println(test);
             this.log.add("DV " + test.replaceAll("\n", " "));
-            this.log.add("Se notifico a " + this.vecino + " marcar como notificado");
+            this.log.add("Distance Vector has been transmitted "
+                    + this.vecino
+                    + " marking as notified");
             distanceVectorAlgorithm.threadResource.acquire();
             distanceVectorAlgorithm.updateNeighbourNotify(this.vecino, true);
             distanceVectorAlgorithm.threadResource.release();
+            this.log.add("---- Distance Vector Process Finish ---- ");
+            this.log.add("");
         } catch (Exception e) {
             e.printStackTrace();
         }

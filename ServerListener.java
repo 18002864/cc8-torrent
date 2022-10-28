@@ -30,18 +30,22 @@ public class ServerListener implements Runnable {
         try {
             PrintWriter outSocket = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader inSocket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            this.log.add("Waiting");
             while (true) {
+
                 String request = inSocket.readLine();
                 if (request == null)
                     break;
-                this.log.add("Request " + request);
+                // this.log.add("Request ??? " + request);
                 if (request.contains("From:")) {
                     String[] arequest = request.split(":");
                     this.vecino = arequest[1];
+                    // this.log.add("Neighbour " + vecino);
                     continue;
                 } else if (request.contains("Type")) {
                     String[] arequest = request.split(":");
                     String type = arequest[1];
+                    this.log.add("Node " + this.vecino + " answer " + arequest[1]);
                     if (type.contains("HELLO")) {
                         /*
                          * outSocket.println("From:" + distanceVectorAlgorithm.myNode);
@@ -50,22 +54,23 @@ public class ServerListener implements Runnable {
                         String test = "From:" + distanceVectorAlgorithm.myNode;
                         test += "\n" + "Type:WELCOME";
                         outSocket.println(test);
-                        this.log.add(
-                                "this.distanceVectorAlgorithm.updateNeighbourConnected(" + this.vecino + "," + true
-                                        + ")");
+                        // this.log.add(
+                        // "this.distanceVectorAlgorithm.updateNeighbourConnected(" + this.vecino + ","
+                        // + true
+                        // + ")");
                         this.distanceVectorAlgorithm.threadResource.acquire();
                         this.distanceVectorAlgorithm.updateNeighbourConnected(this.vecino, true);
                         this.distanceVectorAlgorithm.threadResource.release();
                     } else if (type.contains("DV")) {
-                        this.leerDistanceVectorVecino(inSocket, this.vecino);
+                        this.readDistancesVectorFromNeighbour(inSocket, this.vecino);
                     } else if (type.contains("KeepAlive")) {
-                        this.log.add("KeepAlive de " + this.vecino);
+                        this.log.add("Keep Alive from node " + this.vecino);
                     }
                     continue;
                 }
             }
             try {
-                this.log.add("Null Se perdio conexion con " + this.vecino);
+                this.log.add("Connection lost with node " + this.vecino + " as NULL");
                 Long now = System.currentTimeMillis();
                 this.distanceVectorAlgorithm.threadResource.acquire();
                 this.distanceVectorAlgorithm.updateNeighbourConnected(this.vecino, false);
@@ -74,14 +79,16 @@ public class ServerListener implements Runnable {
                 while (true) {
                     if (System.currentTimeMillis() - now >= (this.wait_reconnection * 1000)) {
                         if (!this.distanceVectorAlgorithm.neighbourConnected.get(this.vecino)) {
-                            log.add("No se recupero conexion con " + this.vecino);
-                            log.add("this.distanceVectorAlgorithm.updateNeighbourCost(" + this.vecino + ",99);");
+                            log.add("Cannot reconnect with node " + this.vecino);
+                            // log.add("this.distanceVectorAlgorithm.updateNeighbourCost(" + this.vecino +
+                            // ",99);");
                             this.distanceVectorAlgorithm.threadResource.acquire();
                             this.distanceVectorAlgorithm.updateNeighbourCost(this.vecino, "99");
                             this.distanceVectorAlgorithm.threadResource.release();
                             break;
                         } else {
-                            log.add("Se recupero conexion con " + this.vecino);
+                            log.add("Reconnecting");
+                            log.add("Connection reached with node " + this.vecino);
                             break;
                         }
                     }
@@ -92,7 +99,10 @@ public class ServerListener implements Runnable {
         } catch (SocketException e) {
             if (e.toString().contains("Connection reset")) {
                 try {
-                    this.log.add("Connection reset Se perdio conexion con " + this.vecino);
+                    this.log.add("");
+                    this.log.add("---- Server Error ---- ");
+                    // this.log.add("Connection reset Se perdio conexion con " + this.vecino);
+                    this.log.add("Node lost " + this.vecino + "connection reset");
                     Long now = System.currentTimeMillis();
                     this.distanceVectorAlgorithm.threadResource.acquire();
                     this.distanceVectorAlgorithm.updateNeighbourConnected(this.vecino, false);
@@ -101,14 +111,19 @@ public class ServerListener implements Runnable {
                     while (true) {
                         if (System.currentTimeMillis() - now >= (this.wait_reconnection * 1000)) {
                             if (!this.distanceVectorAlgorithm.neighbourConnected.get(this.vecino)) {
-                                log.add("No se recupero conexion con " + this.vecino);
-                                log.add("this.distanceVectorAlgorithm.updateNeighbourCost(" + this.vecino + ",99);");
+                                // log.add("No se recupero conexion con " + this.vecino);
+                                this.log.add("Cannot reconnect with neighbour" + this.vecino);
+                                // log.add("this.distanceVectorAlgorithm.updateNeighbourCost(" + this.vecino +
+                                // ",99);");
                                 this.distanceVectorAlgorithm.threadResource.acquire();
                                 this.distanceVectorAlgorithm.updateNeighbourCost(this.vecino, "99");
                                 this.distanceVectorAlgorithm.threadResource.release();
+                                this.log.add("");
+                                this.log.add("---- Server Error ---- ");
                                 break;
                             } else {
-                                log.add("Se recupero conexion con " + this.vecino);
+                                log.add("Reconnecting");
+                                log.add("Connection reached with node " + this.vecino);
                                 break;
                             }
                         }
@@ -122,7 +137,7 @@ public class ServerListener implements Runnable {
         }
     }
 
-    public void leerDistanceVectorVecino(BufferedReader inSocket, String vecino) {
+    public void readDistancesVectorFromNeighbour(BufferedReader inSocket, String vecino) {
         try {
             boolean leido = false;
             HashMap<String, String> datos = new HashMap<String, String>();
@@ -130,7 +145,7 @@ public class ServerListener implements Runnable {
             Integer locallen = 1;
             while (!leido) {
                 String request = inSocket.readLine();
-                this.log.add("Request " + request);
+                this.log.add("Node " + this.vecino + " ----> " + request);
                 if (request.contains("Len")) {
                     String[] arequest = request.split(":");
                     len = Integer.parseInt(arequest[1]);
@@ -147,9 +162,11 @@ public class ServerListener implements Runnable {
             }
 
             distanceVectorAlgorithm.threadResource.acquire();
-            this.log.add("distanceVectorAlgorithm.establecerRutas(" + datos + " , " + vecino + ")");
+            // this.log.add("distanceVectorAlgorithm.establecerRutas(" + datos + " , " +
+            // vecino + ")");
             distanceVectorAlgorithm.stablishRoutes(datos, vecino);
-            this.log.add("distanceVectorAlgorithm.calcular(" + datos + " , " + vecino + ")");
+            // this.log.add("distanceVectorAlgorithm.calcular(" + datos + " , " + vecino +
+            // ")");
             distanceVectorAlgorithm.calculateBellmanFord(vecino);
             distanceVectorAlgorithm.threadResource.release();
         } catch (Exception e) {

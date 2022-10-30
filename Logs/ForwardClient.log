@@ -1,22 +1,2 @@
-   INFO  2022-10-30 11:09:18  
-   INFO  2022-10-30 11:09:18  ---- Available Nodes ---- 
-   INFO  2022-10-30 11:09:19  Neighbour G IP 127.0.0.1 port 9080
-   INFO  2022-10-30 11:09:19  ---- Available Nodes ---- 
-   INFO  2022-10-30 11:09:19  
-   INFO  2022-10-30 11:09:19  
-   INFO  2022-10-30 11:09:19  ---- Greetings Process Started ---- 
-   INFO  2022-10-30 11:09:19  Initialize protocol with Node G
-   INFO  2022-10-30 11:09:19  Sending message Type:HELLO
-   INFO  2022-10-30 11:09:19  Waiting message from G
-   INFO  2022-10-30 11:09:19  Waiting message from G
-   INFO  2022-10-30 11:09:19  Node G answer WELCOME
-   INFO  2022-10-30 11:09:19  Greetings completed with node G
-   INFO  2022-10-30 11:09:19  ---- Greetings Process Finish ---- 
-   INFO  2022-10-30 11:09:19  
-   INFO  2022-10-30 11:09:19  
-   INFO  2022-10-30 11:09:19  ---- Distance Vector Process Started ---- 
-   INFO  2022-10-30 11:09:19  Transmit Distance Vectors to Node G
-   INFO  2022-10-30 11:09:19  DV From:D Type:DV Len:1 G:5
-   INFO  2022-10-30 11:09:19  Distance Vector has been transmitted G marking as notified
-   INFO  2022-10-30 11:09:19  ---- Distance Vector Process Finish ---- 
-   INFO  2022-10-30 11:09:19  
+   INFO  2022-10-30 01:12:54  solicitar(G,video.mp4,3213)
+   INFO  2022-10-30 01:12:54  Forward Cliente: solicitar archivo video.mp4 from:D to:G

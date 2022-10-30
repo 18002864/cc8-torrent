@@ -25,7 +25,7 @@ public class Torrent {
         new Thread(rs).start(); // este thread va a mantener el servidor de Distance Vector
 
         // Aplication 
-        Log logAplicacion = new Log("FS");
+        Log logAplicacion = new Log("FC");
         //ClienteFW ap = new ClienteFW(logAplicacion, distanceVectorAlgorithm);
         ForwardClient ap = new ForwardClient(logAplicacion, distanceVectorAlgorithm);
 

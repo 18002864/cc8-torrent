@@ -9,18 +9,25 @@ public class Torrent {
         Log logsDistanceVector = new Log("DV");
         DistanceVectorAlgorithm distanceVectorAlgorithm = new DistanceVectorAlgorithm(logsDistanceVector);
         distanceVectorAlgorithm.init();
-
+        
+        // Routing Client 
         Integer wait_conection = 5;
         Integer wait_retransmission = 20;
-        Log logClient = new Log("FC");
+        Log logClient = new Log("RC");
         Client client = new Client(wait_conection, wait_retransmission, logClient, distanceVectorAlgorithm);
         new Thread(client).start(); // este thread va a mantener los clientes de Distance Vector
 
+        // Routing Server 
         Integer wait_reconnection = 90;
         Integer port = 9080;
-        Log logServer = new Log("FS");
+        Log logServer = new Log("RS");
         Server rs = new Server(logServer, port, wait_reconnection, distanceVectorAlgorithm);
         new Thread(rs).start(); // este thread va a mantener el servidor de Distance Vector
+
+        // Aplication 
+        Log logAplicacion = new Log("FS");
+        //ClienteFW ap = new ClienteFW(logAplicacion, distanceVectorAlgorithm);
+        ForwardClient ap = new ForwardClient(logAplicacion, distanceVectorAlgorithm);
 
         BufferedReader inConsole = new BufferedReader(new InputStreamReader(System.in));
         String userInput = "";
@@ -28,14 +35,14 @@ public class Torrent {
             System.out.println("Ingrese comando: ");
             userInput = inConsole.readLine();
             String[] commands = userInput.split(" ");
-
+            ap.solicitar(commands[0], commands[1], commands[2]);
             // debe cumplir con esta estructura
             // hacer una lista de comandos
 
             // [0] = destiny
             // [1] = name
             // [2] = size
-            System.out.println(commands[0]);
+            //System.out.println(commands[0]);
             // if (commands.length == 3) {
 
             // } else if (commands.length == 1) {

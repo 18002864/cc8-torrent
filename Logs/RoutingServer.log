@@ -1,1 +1,10 @@
-   INFO > [13/10/2022 11:11:18] : My Node ---> 
+   INFO  2022-10-30 12:57:25  
+   INFO  2022-10-30 12:57:25  ---- Server ---- 
+   INFO  2022-10-30 12:57:25  Server running in 9080
+   INFO  2022-10-30 12:57:25  ---- Server ---- 
+   INFO  2022-10-30 12:57:25  
+   INFO  2022-10-30 12:57:25  Waiting
+   INFO  2022-10-30 12:57:25  Node D answer HELLO
+   INFO  2022-10-30 12:57:25  Node D answer DV
+   INFO  2022-10-30 12:57:25  Node D ----> Len:1
+   INFO  2022-10-30 12:57:25  Node D ----> G:5

@@ -1,4 +1,36 @@
-   INFO  2022-11-01 11:37:06  solicitar(G,video.mp4,1524)
-   INFO  2022-11-01 11:37:06  Forward Cliente: solicitar archivo video.mp4 from:D to:G
-   INFO  2022-11-01 11:37:28  solicitar(D,video.mp4,1524)
-   INFO  2022-11-01 11:37:28  Forward Cliente: solicitar archivo video.mp4 from:D to:D
+   INFO  2022-11-02 09:42:21  solicitar(D,video.mp4,340950)
+   INFO  2022-11-02 09:42:21  Forward Cliente: solicitar archivo video.mp4 from:D to:D
+   INFO  2022-11-02 09:42:24  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:27  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:30  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:33  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:36  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:39  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:42  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:45  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:48  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:51  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:54  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:42:57  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:00  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:03  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:06  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:09  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:12  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:15  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:18  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:21  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:24  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:27  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:30  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:33  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:36  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:39  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:42  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:45  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:48  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:51  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:54  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:43:57  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:44:00  0%, se han recibido 0 de 340950 bytes
+   INFO  2022-11-02 09:44:03  0%, se han recibido 0 de 340950 bytes

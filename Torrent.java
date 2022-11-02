@@ -36,32 +36,31 @@ public class Torrent {
         BufferedReader inConsole = new BufferedReader(new InputStreamReader(System.in));
         String userInput = "";
         while (!userInput.contains("exit")) {
-            System.out.println("Ingrese comando: ");
+            System.out.print("Ingrese comando: ");
             userInput = inConsole.readLine();
             String[] commands = userInput.split(" ");
-            app.request(commands[0], commands[1], commands[2]);
-            // debe cumplir con esta estructura
-            // hacer una lista de comandos
+            
+            if(commands.length == 3){
+                app.fileLength = 0;
+                app.request(commands[0], commands[1], commands[2]);
+                
+                /*
+                // Ciclo para esperar a que se finalice la solicitud, recepción y construcción de archivo
+                Long now = System.currentTimeMillis(); // 100
+                while(true){
+                    if (System.currentTimeMillis() - now >= (5*1000)){
+                        if(!app.consoleFlag){
+                            break;
+                        }
+                        now = System.currentTimeMillis();
+                    }
+                }
+                */
 
-            // [0] = destiny
-            // [1] = name
-            // [2] = size
-            //System.out.println(commands[0]);
-            // if (commands.length == 3) {
-
-            // } else if (commands.length == 1) {
-            // if (commands[0].contains("mostrar")) {
-
-            // } else if (commands[0].contains("printdv")) {
-
-            // } else {
-            // System.out.println("Comando no valido");
-            // continue;
-            // }
-            // } else {
-            // System.out.println("Comando no valido");
-            // continue;
-            // }
+            } else {
+                System.out.println("Comando no valido");
+                continue;
+            }        
         }
 
     }

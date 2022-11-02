@@ -1,11 +1,6 @@
-   INFO  2022-11-01 11:36:54  Forward Server en 1981
-   INFO  2022-11-01 11:37:06  Request From:D
-   INFO  2022-11-01 11:37:06  Request To:G
-   INFO  2022-11-01 11:37:06  Request Name:video.mp4
-   INFO  2022-11-01 11:37:06  Request Size:1524
-   INFO  2022-11-01 11:37:06  Request EOF
-   INFO  2022-11-01 11:37:28  Request From:D
-   INFO  2022-11-01 11:37:28  Request To:D
-   INFO  2022-11-01 11:37:28  Request Name:video.mp4
-   INFO  2022-11-01 11:37:28  Request Size:1524
-   INFO  2022-11-01 11:37:28  Request EOF
+   INFO  2022-11-02 09:42:10  Forward Server en 1981
+   INFO  2022-11-02 09:42:21  Request From:D
+   INFO  2022-11-02 09:42:21  Request To:D
+   INFO  2022-11-02 09:42:21  Request Name:video.mp4
+   INFO  2022-11-02 09:42:21  Request Size:340950
+   INFO  2022-11-02 09:42:21  Request EOF

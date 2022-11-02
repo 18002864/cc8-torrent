@@ -1,27 +1,27 @@
-   INFO  2022-11-01 11:36:54  
-   INFO  2022-11-01 11:36:54  ---- Available Nodes ---- 
-   INFO  2022-11-01 11:36:54  Neighbour G IP 127.0.0.1 port 9080
-   INFO  2022-11-01 11:36:54  ---- Available Nodes ---- 
-   INFO  2022-11-01 11:36:54  
-   INFO  2022-11-01 11:36:54  
-   INFO  2022-11-01 11:36:54  ---- Greetings Process Started ---- 
-   INFO  2022-11-01 11:36:54  Initialize protocol with Node G
-   INFO  2022-11-01 11:36:54  Sending message Type:HELLO
-   INFO  2022-11-01 11:36:54  Waiting message from G
-   INFO  2022-11-01 11:36:54  Waiting message from G
-   INFO  2022-11-01 11:36:54  Node G answer WELCOME
-   INFO  2022-11-01 11:36:54  Greetings completed with node G
-   INFO  2022-11-01 11:36:54  ---- Greetings Process Finish ---- 
-   INFO  2022-11-01 11:36:54  
-   INFO  2022-11-01 11:36:54  
-   INFO  2022-11-01 11:36:54  ---- Distance Vector Process Started ---- 
-   INFO  2022-11-01 11:36:54  Transmit Distance Vectors to Node G
-   INFO  2022-11-01 11:36:54  DV From:D Type:DV Len:1 G:5
-   INFO  2022-11-01 11:36:54  Distance Vector has been transmitted G marking as notified
-   INFO  2022-11-01 11:36:54  ---- Distance Vector Process Finish ---- 
-   INFO  2022-11-01 11:36:54  
-   INFO  2022-11-01 11:37:14  
-   INFO  2022-11-01 11:37:14  ---- Keep Alive Process Error ---- 
-  WARNING  2022-11-01 11:37:14  Neighbour G is not connected, rejecting client
-   INFO  2022-11-01 11:37:14  ---- Keep Alive Process Error ---- 
-   INFO  2022-11-01 11:37:14  
+   INFO  2022-11-02 09:42:10  
+   INFO  2022-11-02 09:42:10  ---- Available Nodes ---- 
+   INFO  2022-11-02 09:42:10  Neighbour G IP 127.0.0.1 port 9080
+   INFO  2022-11-02 09:42:10  ---- Available Nodes ---- 
+   INFO  2022-11-02 09:42:10  
+   INFO  2022-11-02 09:42:10  
+   INFO  2022-11-02 09:42:10  ---- Greetings Process Started ---- 
+   INFO  2022-11-02 09:42:10  Initialize protocol with Node G
+   INFO  2022-11-02 09:42:10  Sending message Type:HELLO
+   INFO  2022-11-02 09:42:10  Waiting message from G
+   INFO  2022-11-02 09:42:10  Waiting message from G
+   INFO  2022-11-02 09:42:10  Node G answer WELCOME
+   INFO  2022-11-02 09:42:10  Greetings completed with node G
+   INFO  2022-11-02 09:42:10  ---- Greetings Process Finish ---- 
+   INFO  2022-11-02 09:42:10  
+   INFO  2022-11-02 09:42:10  
+   INFO  2022-11-02 09:42:10  ---- Distance Vector Process Started ---- 
+   INFO  2022-11-02 09:42:10  Transmit Distance Vectors to Node G
+   INFO  2022-11-02 09:42:10  DV From:D Type:DV Len:1 G:5
+   INFO  2022-11-02 09:42:10  Distance Vector has been transmitted G marking as notified
+   INFO  2022-11-02 09:42:10  ---- Distance Vector Process Finish ---- 
+   INFO  2022-11-02 09:42:10  
+   INFO  2022-11-02 09:42:30  
+   INFO  2022-11-02 09:42:30  ---- Keep Alive Process Error ---- 
+  WARNING  2022-11-02 09:42:30  Neighbour G is not connected, rejecting client
+   INFO  2022-11-02 09:42:30  ---- Keep Alive Process Error ---- 
+   INFO  2022-11-02 09:42:30  

@@ -15,8 +15,10 @@ public class ForwardClientThread implements Runnable {
     public void run() {
         try {
             Long now = System.currentTimeMillis();
+            this.logAplicacion.add("---- Start Waiting File ----");
             while (true) {
-                if (System.currentTimeMillis() - now >= (3 * 1000)) { // cada 3 segundos
+                // Verificar cada 3 segundos
+                if (System.currentTimeMillis() - now >= (3 * 1000)) { 
                     // Verificar si el archivo ya se recibio completo
                     if (forwardClient.waitingFlag) {
                         this.forwardClient.sema.acquire();
@@ -30,6 +32,9 @@ public class ForwardClientThread implements Runnable {
                             logAplicacion.add("Hubo un error! con el archivo " + this.forwardClient.fileName + " error: " + this.forwardClient.message);
                             this.forwardClient.consoleFlag = false;
                         } else {
+                            
+                            this.logAplicacion.add("---- End Waiting File ----\n");
+                            this.logAplicacion.add("---- Start Build File ----");
                             
                             // Construcción de archivo
                             this.logAplicacion.add("Voy a intentar formar el archivo " + this.forwardClient.fileName);
@@ -54,11 +59,12 @@ public class ForwardClientThread implements Runnable {
                             OutputStream stream = new FileOutputStream("./files/" + file);
                             stream.write(fileByte);
                             stream.close();
-                            System.out.println("Todo bien :D : se guardo el archivo " + this.forwardClient.fileName);
+                            this.logAplicacion.add("Todo bien :D : se guardo el archivo " + this.forwardClient.fileName);
                             if(forwardClient.consoleFlag){
                                 forwardClient.consoleFlag = false;
                             }
-                            
+
+                            this.logAplicacion.add("---- End Build File ----");
                         }
                         break;
                     }

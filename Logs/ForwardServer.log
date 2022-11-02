@@ -1,6 +1,12 @@
-   INFO  2022-11-02 09:42:10  Forward Server en 1981
-   INFO  2022-11-02 09:42:21  Request From:D
-   INFO  2022-11-02 09:42:21  Request To:D
-   INFO  2022-11-02 09:42:21  Request Name:video.mp4
-   INFO  2022-11-02 09:42:21  Request Size:340950
-   INFO  2022-11-02 09:42:21  Request EOF
+   INFO  2022-11-02 11:37:19  Forward Server is running on port 1981
+
+   INFO  2022-11-02 11:37:29  ---- Start Receive Request ----
+   INFO  2022-11-02 11:37:29  From:D
+   INFO  2022-11-02 11:37:29  To:D
+   INFO  2022-11-02 11:37:29  Name:video.mp4
+   INFO  2022-11-02 11:37:29  Size:340950
+   INFO  2022-11-02 11:37:29  EOF
+   INFO  2022-11-02 11:37:29  ---- End Receive Request ----
+
+   INFO  2022-11-02 11:37:29  ---- El archivo es para mi ----
+

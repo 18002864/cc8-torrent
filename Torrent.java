@@ -44,7 +44,7 @@ public class Torrent {
                 app.fileLength = 0;
                 app.request(commands[0], commands[1], commands[2]);
                 
-                /*
+                
                 // Ciclo para esperar a que se finalice la solicitud, recepción y construcción de archivo
                 Long now = System.currentTimeMillis(); // 100
                 while(true){
@@ -55,7 +55,7 @@ public class Torrent {
                         now = System.currentTimeMillis();
                     }
                 }
-                */
+                
 
             } else {
                 System.out.println("Comando no valido");

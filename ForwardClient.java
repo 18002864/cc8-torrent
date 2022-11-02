@@ -27,20 +27,21 @@ public class ForwardClient {
 
     
     public Semaphore sema = new Semaphore(1);
-    public Boolean waitingFlag = false; // true si espera a que se complete el archivo
+    public Boolean waitingFlag = false; // True si espera a que se complete el archivo
     public Boolean errorFlag = false; // True si existen un error en la transmision
     public Boolean consoleFlag = false; // True si se esta imprimiendo en consola
     
     public void request(String destiny, String fileName, String fileSize) {
-        
+
             this.consoleFlag = true;
-            logAplicacion.add("solicitar(" + destiny + "," + fileName + "," + fileSize + ")");
+            logAplicacion.add("---- Start Send Request ----");
+            logAplicacion.add("Parameters " + destiny + " " + fileName + " " + fileSize);
             this.destiny = destiny;
             this.fileName = fileName;
             this.fileSize = Integer.parseInt(fileSize);
             this.waitingFlag = true;
             this.errorFlag = false;
-            logAplicacion.add("Forward Cliente: solicitar archivo " + fileName + " from:" + distanceVectorAlgorithm.myNode + " to:" + destiny);
+            
             
             // Metodo para enviar petición del archivo
             sendRequest();
@@ -59,6 +60,7 @@ public class ForwardClient {
             String ip = this.distanceVectorAlgorithm.hostNeighbours.get(through).get("ip");
             //System.out.println(ip);
 
+            
             // Envio de solicitud de archivo (pendiente cambiar a JSON)
             Socket socketClient = new Socket(ip, this.fordwardPort);
             PrintWriter outSocket = new PrintWriter(socketClient.getOutputStream(), true);
@@ -67,9 +69,18 @@ public class ForwardClient {
             info += "\n" + "Name:" + this.fileName;
             info += "\n" + "Size:" + this.fileSize;
             info += "\n" + "EOF";
+            
             outSocket.println(info);
             outSocket.close();
             socketClient.close();
+
+            logAplicacion.add("From:" + distanceVectorAlgorithm.myNode);
+            logAplicacion.add("To:" + this.destiny);
+            logAplicacion.add("Name:" + this.fileName);
+            logAplicacion.add("Size:" + this.fileSize);
+            logAplicacion.add("EOF");        
+            logAplicacion.add("---- End Send Request ----\n");
+            
 
         } catch (Exception e) {
             e.printStackTrace();

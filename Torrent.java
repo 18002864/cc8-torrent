@@ -15,19 +15,23 @@ public class Torrent {
         Integer wait_retransmission = 20;
         Log logClient = new Log("RC");
         Client client = new Client(wait_conection, wait_retransmission, logClient, distanceVectorAlgorithm);
-        new Thread(client).start(); // este thread va a mantener los clientes de Distance Vector
+        new Thread(client).start(); 
 
         // Routing Server 
         Integer wait_reconnection = 90;
         Integer port = 9080;
         Log logServer = new Log("RS");
         Server rs = new Server(logServer, port, wait_reconnection, distanceVectorAlgorithm);
-        new Thread(rs).start(); // este thread va a mantener el servidor de Distance Vector
+        new Thread(rs).start(); 
 
         // Aplication 
         Log logAplicacion = new Log("FC");
-        //ClienteFW ap = new ClienteFW(logAplicacion, distanceVectorAlgorithm);
-        ForwardClient ap = new ForwardClient(logAplicacion, distanceVectorAlgorithm);
+        ForwardClient app = new ForwardClient(logAplicacion, distanceVectorAlgorithm);
+
+        // Forward Server
+        Log logForwardServer = new Log("FS");
+        ForwardServer forwardServer = new ForwardServer(logForwardServer, distanceVectorAlgorithm, app);
+        new Thread(forwardServer).start(); 
 
         BufferedReader inConsole = new BufferedReader(new InputStreamReader(System.in));
         String userInput = "";
@@ -35,7 +39,7 @@ public class Torrent {
             System.out.println("Ingrese comando: ");
             userInput = inConsole.readLine();
             String[] commands = userInput.split(" ");
-            ap.solicitar(commands[0], commands[1], commands[2]);
+            app.request(commands[0], commands[1], commands[2]);
             // debe cumplir con esta estructura
             // hacer una lista de comandos
 

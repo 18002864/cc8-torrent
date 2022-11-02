@@ -1,2 +1,4 @@
-   INFO  2022-10-30 01:12:54  solicitar(G,video.mp4,3213)
-   INFO  2022-10-30 01:12:54  Forward Cliente: solicitar archivo video.mp4 from:D to:G
+   INFO  2022-11-01 11:37:06  solicitar(G,video.mp4,1524)
+   INFO  2022-11-01 11:37:06  Forward Cliente: solicitar archivo video.mp4 from:D to:G
+   INFO  2022-11-01 11:37:28  solicitar(D,video.mp4,1524)
+   INFO  2022-11-01 11:37:28  Forward Cliente: solicitar archivo video.mp4 from:D to:D

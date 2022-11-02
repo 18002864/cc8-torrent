@@ -1,35 +1,113 @@
-   INFO  2022-10-30 01:12:42  My Node ---> D
-   INFO  2022-10-30 01:12:42  
-   INFO  2022-10-30 01:12:42  ---- Control Table ----
-   INFO  2022-10-30 01:12:42  Changes in map ---> true
-   INFO  2022-10-30 01:12:42  Neighbours Notify Table ---> {G=false}
-   INFO  2022-10-30 01:12:42  Neighbours Connected Table ---> {G=false}
-   INFO  2022-10-30 01:12:42  Neighbours Listening Table ---> {G=false}
-   INFO  2022-10-30 01:12:42  ---- Control Table ----
-   INFO  2022-10-30 01:12:42  
-   INFO  2022-10-30 01:12:42  
-   INFO  2022-10-30 01:12:42  ---- Cost And Hop Table ----
-   INFO  2022-10-30 01:12:42  D --->   Hop D Cost 0,  Hop G Cost 5,
-   INFO  2022-10-30 01:12:42  ---- Cost And Hop Table ----
-   INFO  2022-10-30 01:12:42  
-   INFO  2022-10-30 01:12:42  
-   INFO  2022-10-30 01:12:42  ---- Bellman Ford ----
-   INFO  2022-10-30 01:12:42  Antes {D={D={cost=0, hop=D}, G={cost=5, hop=G}}}
-   INFO  2022-10-30 01:12:42  DD(D) = C(D,D) : 0 + DD(D) : 0 Total: 0
-   INFO  2022-10-30 01:12:42  DD(G) = C(D,D) : 0 + DD(G) : 5 Total: 5
-   INFO  2022-10-30 01:12:42  Despues {D={D={cost=0, hop=D}, G={cost=5, hop=G}}}
-   INFO  2022-10-30 01:12:42  ---- Bellman Ford ----
-   INFO  2022-10-30 01:12:42  
-   INFO  2022-10-30 01:12:57  
-   INFO  2022-10-30 01:12:57  ---- Control Table ----
-   INFO  2022-10-30 01:12:57  Changes in map ---> false
-   INFO  2022-10-30 01:12:57  Neighbours Notify Table ---> {G=true}
-   INFO  2022-10-30 01:12:57  Neighbours Connected Table ---> {D=true, G=false}
-   INFO  2022-10-30 01:12:57  Neighbours Listening Table ---> {D=true, G=false}
-   INFO  2022-10-30 01:12:57  ---- Control Table ----
-   INFO  2022-10-30 01:12:57  
-   INFO  2022-10-30 01:12:57  
-   INFO  2022-10-30 01:12:57  ---- Cost And Hop Table ----
-   INFO  2022-10-30 01:12:57  D --->   Hop D Cost 0,  Hop G Cost 5,
-   INFO  2022-10-30 01:12:57  ---- Cost And Hop Table ----
-   INFO  2022-10-30 01:12:57  
+   INFO  2022-11-01 11:36:54  My Node ---> D
+   INFO  2022-11-01 11:36:54  
+   INFO  2022-11-01 11:36:54  ---- Control Table ----
+   INFO  2022-11-01 11:36:54  Changes in map ---> true
+   INFO  2022-11-01 11:36:54  Neighbours Notify Table ---> {G=false}
+   INFO  2022-11-01 11:36:54  Neighbours Connected Table ---> {G=false}
+   INFO  2022-11-01 11:36:54  Neighbours Listening Table ---> {G=false}
+   INFO  2022-11-01 11:36:54  ---- Control Table ----
+   INFO  2022-11-01 11:36:54  
+   INFO  2022-11-01 11:36:54  
+   INFO  2022-11-01 11:36:54  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:36:54  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-11-01 11:36:54  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:36:54  
+   INFO  2022-11-01 11:36:54  
+   INFO  2022-11-01 11:36:54  ---- Bellman Ford ----
+   INFO  2022-11-01 11:36:54  Antes {D={D={cost=0, hop=D}, G={cost=5, hop=G}}}
+   INFO  2022-11-01 11:36:54  DD(D) = C(D,D) : 0 + DD(D) : 0 Total: 0
+   INFO  2022-11-01 11:36:54  DD(G) = C(D,D) : 0 + DD(G) : 5 Total: 5
+   INFO  2022-11-01 11:36:54  Despues {D={D={cost=0, hop=D}, G={cost=5, hop=G}}}
+   INFO  2022-11-01 11:36:54  ---- Bellman Ford ----
+   INFO  2022-11-01 11:36:54  
+   INFO  2022-11-01 11:37:09  
+   INFO  2022-11-01 11:37:09  ---- Control Table ----
+   INFO  2022-11-01 11:37:09  Changes in map ---> false
+   INFO  2022-11-01 11:37:09  Neighbours Notify Table ---> {G=true}
+   INFO  2022-11-01 11:37:09  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:37:09  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:37:09  ---- Control Table ----
+   INFO  2022-11-01 11:37:09  
+   INFO  2022-11-01 11:37:09  
+   INFO  2022-11-01 11:37:09  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:37:09  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-11-01 11:37:09  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:37:09  
+   INFO  2022-11-01 11:37:24  
+   INFO  2022-11-01 11:37:24  ---- Control Table ----
+   INFO  2022-11-01 11:37:24  Changes in map ---> false
+   INFO  2022-11-01 11:37:24  Neighbours Notify Table ---> {G=true}
+   INFO  2022-11-01 11:37:24  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:37:24  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:37:24  ---- Control Table ----
+   INFO  2022-11-01 11:37:24  
+   INFO  2022-11-01 11:37:24  
+   INFO  2022-11-01 11:37:24  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:37:24  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-11-01 11:37:24  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:37:24  
+   INFO  2022-11-01 11:37:39  
+   INFO  2022-11-01 11:37:39  ---- Control Table ----
+   INFO  2022-11-01 11:37:39  Changes in map ---> false
+   INFO  2022-11-01 11:37:39  Neighbours Notify Table ---> {G=true}
+   INFO  2022-11-01 11:37:39  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:37:39  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:37:39  ---- Control Table ----
+   INFO  2022-11-01 11:37:39  
+   INFO  2022-11-01 11:37:39  
+   INFO  2022-11-01 11:37:39  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:37:39  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-11-01 11:37:39  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:37:39  
+   INFO  2022-11-01 11:37:54  
+   INFO  2022-11-01 11:37:54  ---- Control Table ----
+   INFO  2022-11-01 11:37:54  Changes in map ---> false
+   INFO  2022-11-01 11:37:54  Neighbours Notify Table ---> {G=true}
+   INFO  2022-11-01 11:37:54  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:37:54  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:37:54  ---- Control Table ----
+   INFO  2022-11-01 11:37:54  
+   INFO  2022-11-01 11:37:54  
+   INFO  2022-11-01 11:37:54  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:37:54  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-11-01 11:37:54  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:37:54  
+   INFO  2022-11-01 11:38:09  
+   INFO  2022-11-01 11:38:09  ---- Control Table ----
+   INFO  2022-11-01 11:38:09  Changes in map ---> false
+   INFO  2022-11-01 11:38:09  Neighbours Notify Table ---> {G=true}
+   INFO  2022-11-01 11:38:09  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:38:09  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:38:09  ---- Control Table ----
+   INFO  2022-11-01 11:38:09  
+   INFO  2022-11-01 11:38:09  
+   INFO  2022-11-01 11:38:09  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:38:09  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-11-01 11:38:09  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:38:09  
+   INFO  2022-11-01 11:38:24  
+   INFO  2022-11-01 11:38:24  ---- Control Table ----
+   INFO  2022-11-01 11:38:24  Changes in map ---> false
+   INFO  2022-11-01 11:38:24  Neighbours Notify Table ---> {G=true}
+   INFO  2022-11-01 11:38:24  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:38:24  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:38:24  ---- Control Table ----
+   INFO  2022-11-01 11:38:24  
+   INFO  2022-11-01 11:38:24  
+   INFO  2022-11-01 11:38:24  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:38:24  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-11-01 11:38:24  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:38:24  
+   INFO  2022-11-01 11:38:39  
+   INFO  2022-11-01 11:38:39  ---- Control Table ----
+   INFO  2022-11-01 11:38:39  Changes in map ---> false
+   INFO  2022-11-01 11:38:39  Neighbours Notify Table ---> {G=true}
+   INFO  2022-11-01 11:38:39  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:38:39  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-11-01 11:38:39  ---- Control Table ----
+   INFO  2022-11-01 11:38:39  
+   INFO  2022-11-01 11:38:39  
+   INFO  2022-11-01 11:38:39  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:38:39  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-11-01 11:38:39  ---- Cost And Hop Table ----
+   INFO  2022-11-01 11:38:39  

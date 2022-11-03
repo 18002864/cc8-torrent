@@ -174,7 +174,7 @@ public class ForwardServerThread implements Runnable {
             File file = new File("files/" + name);
             String through = this.distanceVectorAlgorithm.distanceVectorHashMap.get(distanceVectorAlgorithm.myNode).get(from).get("atraves"); // ruta segun Distance Vector
             //System.out.println(through);
-            through = "G";
+            //through = "G";
             String ip = this.distanceVectorAlgorithm.hostNeighbours.get(through).get("ip");
             //System.out.println(ip);
 

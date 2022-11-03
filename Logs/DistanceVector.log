@@ -1,22 +1,35 @@
-   INFO  2022-11-02 11:37:19  My Node ---> D
-   INFO  2022-11-02 11:37:19  
-   INFO  2022-11-02 11:37:19  ---- Control Table ----
-   INFO  2022-11-02 11:37:19  Changes in map ---> true
-   INFO  2022-11-02 11:37:19  Neighbours Notify Table ---> {G=false}
-   INFO  2022-11-02 11:37:19  Neighbours Connected Table ---> {G=false}
-   INFO  2022-11-02 11:37:19  Neighbours Listening Table ---> {G=false}
-   INFO  2022-11-02 11:37:19  ---- Control Table ----
-   INFO  2022-11-02 11:37:19  
-   INFO  2022-11-02 11:37:19  
-   INFO  2022-11-02 11:37:19  ---- Cost And Hop Table ----
-   INFO  2022-11-02 11:37:19  D --->   Hop D Cost 0,  Hop G Cost 5,
-   INFO  2022-11-02 11:37:19  ---- Cost And Hop Table ----
-   INFO  2022-11-02 11:37:19  
-   INFO  2022-11-02 11:37:19  
-   INFO  2022-11-02 11:37:19  ---- Bellman Ford ----
-   INFO  2022-11-02 11:37:19  Antes {D={D={cost=0, hop=D}, G={cost=5, hop=G}}}
-   INFO  2022-11-02 11:37:19  DD(D) = C(D,D) : 0 + DD(D) : 0 Total: 0
-   INFO  2022-11-02 11:37:19  DD(G) = C(D,D) : 0 + DD(G) : 5 Total: 5
-   INFO  2022-11-02 11:37:19  Despues {D={D={cost=0, hop=D}, G={cost=5, hop=G}}}
-   INFO  2022-11-02 11:37:19  ---- Bellman Ford ----
-   INFO  2022-11-02 11:37:19  
+   INFO  2022-11-02 07:53:49  My Node ---> D
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:53:49  ---- Control Table ----
+   INFO  2022-11-02 07:53:49  Changes in map ---> true
+   INFO  2022-11-02 07:53:49  Neighbours Notify Table ---> {G=false}
+   INFO  2022-11-02 07:53:49  Neighbours Connected Table ---> {G=false}
+   INFO  2022-11-02 07:53:49  Neighbours Listening Table ---> {G=false}
+   INFO  2022-11-02 07:53:49  ---- Control Table ----
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:53:49  ---- Cost And Hop Table ----
+   INFO  2022-11-02 07:53:49  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-11-02 07:53:49  ---- Cost And Hop Table ----
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:53:49  ---- Bellman Ford ----
+   INFO  2022-11-02 07:53:49  Antes {D={D={cost=0, hop=D}, G={cost=5, hop=G}}}
+   INFO  2022-11-02 07:53:49  DD(D) = C(D,D) : 0 + DD(D) : 0 Total: 0
+   INFO  2022-11-02 07:53:49  DD(G) = C(D,D) : 0 + DD(G) : 5 Total: 5
+   INFO  2022-11-02 07:53:49  Despues {D={D={cost=0, hop=D}, G={cost=5, hop=G}}}
+   INFO  2022-11-02 07:53:49  ---- Bellman Ford ----
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:54:04  
+   INFO  2022-11-02 07:54:04  ---- Control Table ----
+   INFO  2022-11-02 07:54:04  Changes in map ---> false
+   INFO  2022-11-02 07:54:04  Neighbours Notify Table ---> {G=true}
+   INFO  2022-11-02 07:54:04  Neighbours Connected Table ---> {D=true, G=false}
+   INFO  2022-11-02 07:54:04  Neighbours Listening Table ---> {D=true, G=false}
+   INFO  2022-11-02 07:54:04  ---- Control Table ----
+   INFO  2022-11-02 07:54:04  
+   INFO  2022-11-02 07:54:04  
+   INFO  2022-11-02 07:54:04  ---- Cost And Hop Table ----
+   INFO  2022-11-02 07:54:04  D --->   Hop D Cost 0,  Hop G Cost 5,
+   INFO  2022-11-02 07:54:04  ---- Cost And Hop Table ----
+   INFO  2022-11-02 07:54:04  

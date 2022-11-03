@@ -1,22 +1,22 @@
-   INFO  2022-11-02 11:37:19  
-   INFO  2022-11-02 11:37:19  ---- Available Nodes ---- 
-   INFO  2022-11-02 11:37:19  Neighbour G IP 127.0.0.1 port 9080
-   INFO  2022-11-02 11:37:19  ---- Available Nodes ---- 
-   INFO  2022-11-02 11:37:19  
-   INFO  2022-11-02 11:37:19  
-   INFO  2022-11-02 11:37:19  ---- Greetings Process Started ---- 
-   INFO  2022-11-02 11:37:19  Initialize protocol with Node G
-   INFO  2022-11-02 11:37:19  Sending message Type:HELLO
-   INFO  2022-11-02 11:37:19  Waiting message from G
-   INFO  2022-11-02 11:37:19  Waiting message from G
-   INFO  2022-11-02 11:37:19  Node G answer WELCOME
-   INFO  2022-11-02 11:37:19  Greetings completed with node G
-   INFO  2022-11-02 11:37:19  ---- Greetings Process Finish ---- 
-   INFO  2022-11-02 11:37:19  
-   INFO  2022-11-02 11:37:19  
-   INFO  2022-11-02 11:37:19  ---- Distance Vector Process Started ---- 
-   INFO  2022-11-02 11:37:19  Transmit Distance Vectors to Node G
-   INFO  2022-11-02 11:37:19  DV From:D Type:DV Len:1 G:5
-   INFO  2022-11-02 11:37:19  Distance Vector has been transmitted G marking as notified
-   INFO  2022-11-02 11:37:19  ---- Distance Vector Process Finish ---- 
-   INFO  2022-11-02 11:37:19  
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:53:49  ---- Available Nodes ---- 
+   INFO  2022-11-02 07:53:49  Neighbour G IP 127.0.0.1 port 9080
+   INFO  2022-11-02 07:53:49  ---- Available Nodes ---- 
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:53:49  ---- Greetings Process Started ---- 
+   INFO  2022-11-02 07:53:49  Initialize protocol with Node G
+   INFO  2022-11-02 07:53:49  Sending message Type:HELLO
+   INFO  2022-11-02 07:53:49  Waiting message from G
+   INFO  2022-11-02 07:53:49  Waiting message from G
+   INFO  2022-11-02 07:53:49  Node G answer WELCOME
+   INFO  2022-11-02 07:53:49  Greetings completed with node G
+   INFO  2022-11-02 07:53:49  ---- Greetings Process Finish ---- 
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:53:49  
+   INFO  2022-11-02 07:53:49  ---- Distance Vector Process Started ---- 
+   INFO  2022-11-02 07:53:49  Transmit Distance Vectors to Node G
+   INFO  2022-11-02 07:53:49  DV From:D Type:DV Len:1 G:5
+   INFO  2022-11-02 07:53:49  Distance Vector has been transmitted G marking as notified
+   INFO  2022-11-02 07:53:49  ---- Distance Vector Process Finish ---- 
+   INFO  2022-11-02 07:53:49  

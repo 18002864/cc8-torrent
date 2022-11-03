@@ -22,14 +22,15 @@ public class ForwardClientThread implements Runnable {
                     // Verificar si el archivo ya se recibio completo
                     if (forwardClient.waitingFlag) {
                         this.forwardClient.sema.acquire();
-                        logAplicacion.add((100*forwardClient.fileLength/forwardClient.fileSize) + "%, se han recibido " + forwardClient.fileLength + " de " + forwardClient.fileSize + " bytes");
+                        //logAplicacion.add((100*forwardClient.fileLength/forwardClient.fileSize) + "%, se han recibido " + forwardClient.fileLength + " de " + forwardClient.fileSize + " bytes");
+                        logAplicacion.add("File is incomplete");
                         this.forwardClient.sema.release();
                         now = System.currentTimeMillis();
                         continue;
                     } else {
                         // Verificar si se presento un error en la transmisión
                         if (this.forwardClient.errorFlag) {
-                            logAplicacion.add("Hubo un error! con el archivo " + this.forwardClient.fileName + " error: " + this.forwardClient.message);
+                            logAplicacion.add("File " + this.forwardClient.fileName + " error: " + this.forwardClient.message);
                             this.forwardClient.consoleFlag = false;
                         } else {
                             
@@ -37,19 +38,20 @@ public class ForwardClientThread implements Runnable {
                             this.logAplicacion.add("---- Start Build File ----");
                             
                             // Construcción de archivo
-                            this.logAplicacion.add("Voy a intentar formar el archivo " + this.forwardClient.fileName);
                             String fileString = "";
                             this.forwardClient.sema.acquire();
                             if(this.forwardClient.chunks.size() == 0){
-                                this.logAplicacion.add("Hubo un error! no hay chunks :( " + this.forwardClient.fileName);
+                                this.logAplicacion.add(this.forwardClient.fileName + "is empty");
                                 this.forwardClient.consoleFlag = false;
                                 this.forwardClient.sema.release();                                
                                 break;
                             }
-                            this.logAplicacion.add("Se recibieron " + this.forwardClient.chunks.size() + " chunks");
+                            this.logAplicacion.add(this.forwardClient.chunks.size() + " chunks received");
                             for (Integer i = 1; i <= this.forwardClient.chunks.size(); i++) {
                                 fileString += this.forwardClient.chunks.get(i);
                             }
+                            this.logAplicacion.add(this.forwardClient.fileName + " file build");
+                            
                             this.forwardClient.sema.release();
                             byte[] fileByte = hexStringToByteArray(fileString);
                             // File file = new File("Archivos/" + nombreArchivo);
@@ -59,7 +61,7 @@ public class ForwardClientThread implements Runnable {
                             OutputStream stream = new FileOutputStream("./files/" + file);
                             stream.write(fileByte);
                             stream.close();
-                            this.logAplicacion.add("Todo bien :D : se guardo el archivo " + this.forwardClient.fileName);
+                            this.logAplicacion.add(this.forwardClient.fileName + " file saved");
                             if(forwardClient.consoleFlag){
                                 forwardClient.consoleFlag = false;
                             }

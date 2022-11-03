@@ -1,10 +1,17 @@
-   INFO  2022-11-02 11:37:29  ---- Start Send Request ----
-   INFO  2022-11-02 11:37:29  Parameters D video.mp4 340950
-   INFO  2022-11-02 11:37:29  From:D
-   INFO  2022-11-02 11:37:29  To:D
-   INFO  2022-11-02 11:37:29  Name:video.mp4
-   INFO  2022-11-02 11:37:29  Size:340950
-   INFO  2022-11-02 11:37:29  EOF
-   INFO  2022-11-02 11:37:29  ---- End Send Request ----
+   INFO  2022-11-02 07:54:01  ---- Start Send Request ----
+   INFO  2022-11-02 07:54:01  Parameters D video.mp4 340950
+   INFO  2022-11-02 07:54:01  From:D
+   INFO  2022-11-02 07:54:01  To:D
+   INFO  2022-11-02 07:54:01  Name:video.mp4
+   INFO  2022-11-02 07:54:01  Size:340950
+   INFO  2022-11-02 07:54:01  EOF
+   INFO  2022-11-02 07:54:01  ---- End Send Request ----
 
-   INFO  2022-11-02 11:37:29  ---- Start Waiting File ----
+   INFO  2022-11-02 07:54:01  ---- Start Waiting File ----
+   INFO  2022-11-02 07:54:04  ---- End Waiting File ----
+
+   INFO  2022-11-02 07:54:04  ---- Start Build File ----
+   INFO  2022-11-02 07:54:04  468 chunks received
+   INFO  2022-11-02 07:54:04  video.mp4 file build
+   INFO  2022-11-02 07:54:04  video.mp4 file saved
+   INFO  2022-11-02 07:54:04  ---- End Build File ----

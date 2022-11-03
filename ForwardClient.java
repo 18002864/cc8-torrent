@@ -54,7 +54,7 @@ public class ForwardClient {
 
     public void sendRequest() {
         try {
-            String through = this.distanceVectorAlgorithm.distanceVectorHashMap.get(distanceVectorAlgorithm.myNode).get(this.destiny).get("atraves"); // ruta segun Distance Vector
+            String through = this.distanceVectorAlgorithm.distanceVectorHashMap.get(distanceVectorAlgorithm.myNode).get(this.destiny).get("hop"); // ruta segun Distance Vector
             //System.out.println(through);
             //through = "G";
             String ip = this.distanceVectorAlgorithm.hostNeighbours.get(through).get("ip");

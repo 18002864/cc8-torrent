@@ -1,17 +1,36 @@
-   INFO  2022-11-02 07:54:01  ---- Start Send Request ----
-   INFO  2022-11-02 07:54:01  Parameters D video.mp4 340950
-   INFO  2022-11-02 07:54:01  From:D
-   INFO  2022-11-02 07:54:01  To:D
-   INFO  2022-11-02 07:54:01  Name:video.mp4
-   INFO  2022-11-02 07:54:01  Size:340950
-   INFO  2022-11-02 07:54:01  EOF
-   INFO  2022-11-02 07:54:01  ---- End Send Request ----
-
-   INFO  2022-11-02 07:54:01  ---- Start Waiting File ----
-   INFO  2022-11-02 07:54:04  ---- End Waiting File ----
-
-   INFO  2022-11-02 07:54:04  ---- Start Build File ----
-   INFO  2022-11-02 07:54:04  468 chunks received
-   INFO  2022-11-02 07:54:04  video.mp4 file build
-   INFO  2022-11-02 07:54:04  video.mp4 file saved
-   INFO  2022-11-02 07:54:04  ---- End Build File ----
+   INFO  2022-11-02 08:27:38  ---- Start Send Request ----
+   INFO  2022-11-02 08:27:38  Parameters A video.mp4 340950
+   INFO  2022-11-02 08:27:38  ---- Start Waiting File ----
+   INFO  2022-11-02 08:27:41  File is incomplete
+   INFO  2022-11-02 08:27:44  File is incomplete
+   INFO  2022-11-02 08:27:47  File is incomplete
+   INFO  2022-11-02 08:27:50  File is incomplete
+   INFO  2022-11-02 08:27:53  File is incomplete
+   INFO  2022-11-02 08:27:56  File is incomplete
+   INFO  2022-11-02 08:27:59  File is incomplete
+   INFO  2022-11-02 08:28:02  File is incomplete
+   INFO  2022-11-02 08:28:05  File is incomplete
+   INFO  2022-11-02 08:28:08  File is incomplete
+   INFO  2022-11-02 08:28:11  File is incomplete
+   INFO  2022-11-02 08:28:14  File is incomplete
+   INFO  2022-11-02 08:28:17  File is incomplete
+   INFO  2022-11-02 08:28:20  File is incomplete
+   INFO  2022-11-02 08:28:23  File is incomplete
+   INFO  2022-11-02 08:28:26  File is incomplete
+   INFO  2022-11-02 08:28:29  File is incomplete
+   INFO  2022-11-02 08:28:32  File is incomplete
+   INFO  2022-11-02 08:28:35  File is incomplete
+   INFO  2022-11-02 08:28:38  File is incomplete
+   INFO  2022-11-02 08:28:41  File is incomplete
+   INFO  2022-11-02 08:28:44  File is incomplete
+   INFO  2022-11-02 08:28:47  File is incomplete
+   INFO  2022-11-02 08:28:50  File is incomplete
+   INFO  2022-11-02 08:28:53  File is incomplete
+   INFO  2022-11-02 08:28:56  File is incomplete
+   INFO  2022-11-02 08:28:59  File is incomplete
+   INFO  2022-11-02 08:29:02  File is incomplete
+   INFO  2022-11-02 08:29:05  File is incomplete
+   INFO  2022-11-02 08:29:08  File is incomplete
+   INFO  2022-11-02 08:29:11  File is incomplete
+   INFO  2022-11-02 08:29:14  File is incomplete
+   INFO  2022-11-02 08:29:17  File is incomplete

@@ -1,31 +1,5 @@
-   INFO  2022-11-02 08:25:50  
-   INFO  2022-11-02 08:25:50  ---- Server ---- 
-   INFO  2022-11-02 08:25:50  Server running in 9080
-   INFO  2022-11-02 08:25:50  ---- Server ---- 
-   INFO  2022-11-02 08:25:50  
-   INFO  2022-11-02 08:25:52  Waiting
-   INFO  2022-11-02 08:25:52  Node A answer HELLO
-   INFO  2022-11-02 08:25:53  Node A answer DV
-   INFO  2022-11-02 08:25:53  Node A ----> Len:1
-   INFO  2022-11-02 08:25:53  Node A ----> B:5
-   INFO  2022-11-02 08:26:12  Node A answer KeepAlive
-   INFO  2022-11-02 08:26:12  Keep Alive from node A
-   INFO  2022-11-02 08:26:32  Node A answer KeepAlive
-   INFO  2022-11-02 08:26:32  Keep Alive from node A
-   INFO  2022-11-02 08:26:52  Node A answer KeepAlive
-   INFO  2022-11-02 08:26:52  Keep Alive from node A
-   INFO  2022-11-02 08:27:12  Node A answer KeepAlive
-   INFO  2022-11-02 08:27:12  Keep Alive from node A
-   INFO  2022-11-02 08:27:32  Node A answer KeepAlive
-   INFO  2022-11-02 08:27:32  Keep Alive from node A
-   INFO  2022-11-02 08:27:52  Node A answer KeepAlive
-   INFO  2022-11-02 08:27:52  Keep Alive from node A
-   INFO  2022-11-02 08:28:12  Node A answer KeepAlive
-   INFO  2022-11-02 08:28:12  Keep Alive from node A
-   INFO  2022-11-02 08:28:32  Node A answer KeepAlive
-   INFO  2022-11-02 08:28:32  Keep Alive from node A
-   INFO  2022-11-02 08:28:52  Node A answer KeepAlive
-   INFO  2022-11-02 08:28:52  Keep Alive from node A
-   INFO  2022-11-02 08:28:57  
-   INFO  2022-11-02 08:28:57  ---- Server Error ---- 
-   INFO  2022-11-02 08:28:57  Node lost Aconnection reset
+   INFO  2022-11-07 08:59:35  
+   INFO  2022-11-07 08:59:35  ---- Server ---- 
+   INFO  2022-11-07 08:59:35  Server running in 9080
+   INFO  2022-11-07 08:59:35  ---- Server ---- 
+   INFO  2022-11-07 08:59:35  

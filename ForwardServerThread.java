@@ -37,32 +37,26 @@ public class ForwardServerThread implements Runnable {
     public void run() {
         try {
             
-            writer = new PrintWriter(this.socket.getOutputStream(), true);
-            in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
-            
             this.logForwardServer.add("---- Start Receive Request ----");
-            
-            
             while (true) {
-                // Ciclo para esperar a recibir el mensaje completo
+                // Metodo para recibir el mensaje completo
                 saveRequest();
-
                 this.logForwardServer.add("---- End Receive Request ----\n");
-
-                // Verificar si el request es para mi o tiene que ser retransmitido
+                // Verificar si el request es para mi o si tiene que ser retransmitido
                 if (this.distanceVectorAlgorithm.myNode.contains(to)) {
                     //this.logForwardServer.add("---- La solicitud es para mi ----\n");
-                    
                     // Verificar si se esta solicitando un archivo
                     if (!name.equals("") && data.equals("")) { 
                         this.logForwardServer.add("---- Start Response File ----");
-                        this.responseFile(from, to, name, size);
+                        this.responseFile();
                         this.logForwardServer.add("---- End Response File ----");
                         break;
                     } 
                     // Verificar si es un chunck para recibir
                     else if (!name.equals("") && !data.equals("")) { 
-                        this.logForwardServer.add("---- Start Receive Chunk ----");
+                        if (this.forwardClient.fileLength == 0) {
+                            this.logForwardServer.add("---- Start Receive Chunk ----");
+                        }
                         if (this.forwardClient.waitingFlag) {
                             if (this.forwardClient.fileName.contains(name)) {
                                 this.forwardClient.sema.acquire();
@@ -72,8 +66,8 @@ public class ForwardServerThread implements Runnable {
                                 this.forwardClient.fileLength += data.length() / 2;
                                 if (this.forwardClient.fileLength >= Integer.parseInt(size)) {
                                     this.forwardClient.waitingFlag = false;
-                                    this.forwardClient.sema.release();
                                     this.logForwardServer.add("---- End Receive Chunk ----");
+                                    this.forwardClient.sema.release();
                                     break;
                                 } else {
                                     this.forwardClient.sema.release();
@@ -85,11 +79,7 @@ public class ForwardServerThread implements Runnable {
                     // El mensaje es un error porque no hay nombre de archivo
                     else { 
                         this.logForwardServer.add("---- Start Receive Error ----");
-                        this.forwardClient.sema.acquire();
-                        this.forwardClient.errorFlag = true;
-                        this.forwardClient.message = msg;
-                        this.forwardClient.waitingFlag = false;
-                        this.forwardClient.sema.release();
+                        this.saveError();
                         this.logForwardServer.add("---- End Receive Error ----");
                         break;
                     }
@@ -97,9 +87,66 @@ public class ForwardServerThread implements Runnable {
                 } else {
 
                     //this.logForwardServer.add("---- La solicitud no es para mi ----\n");
-                    break;
+                    // Verificar si el request a ser retransmitido es una solicitud o un paquete de un archivo 
+                    if (!name.equals("") && data.equals("")) {
+                        this.logForwardServer.add("---- Start Resend Request ----");
+                        this.resendRequest();
+                        this.logForwardServer.add("---- End Resend Request ----");
+                        break;
+                    } else if (!name.equals("") && !data.equals("")) {
+                        if (fileLength == 0) {
+                            this.logForwardServer.add("---- Start Resend File ----");
+                        } 
+                        chunks.put(Integer.parseInt(frag), data);
+                        fileLength += data.length() / 2;
+                        if (fileLength == Integer.parseInt(size)) {
+                            String through = this.distanceVectorAlgorithm.distanceVectorHashMap.get(distanceVectorAlgorithm.myNode).get(to).get("hop");
+                            String ip = this.distanceVectorAlgorithm.hostNeighbours.get(through).get("ip");
+                            Socket socket = new Socket(ip, this.fordwardPort);
+                            PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+                            
+                            int head = 1;
+                            int tail = this.chunks.size();
+                            Boolean init = true;
+                            for (int i = 1; i <= this.chunks.size(); i++) {
+                                if (init) {
+                                    String info = "From:" + from;
+                                    info += "\n" + "To:" + to;
+                                    info += "\n" + "Name:" + name;
+                                    info += "\n" + "Data:" + chunks.get(head);
+                                    info += "\n" + "Frag:" + head;
+                                    info += "\n" + "Size:" + size;
+                                    info += "\n" + "EOF";
+                                    head++;
+                                    writer.println(info);
+                                    init = false;
+                                } else {
+                                    String info = "From:" + from;
+                                    info += "\n" + "To:" + to;
+                                    info += "\n" + "Name:" + name;
+                                    info += "\n" + "Data:" + chunks.get(tail);
+                                    info += "\n" + "Frag:" + tail;
+                                    info += "\n" + "Size:" + size;
+                                    info += "\n" + "EOF";
+                                    tail--;
+                                    writer.println(info);
+                                    init = true;
+                                }
+                            }
+                            writer.close();
+                            socket.close();
+                            this.logForwardServer.add("---- End Resend File ----");
+                            break;
+                        }
+                        continue;
+                    
+                    } else {
+                        this.logForwardServer.add("---- Start Resend Error ----");
+                        this.resendError();
+                        this.logForwardServer.add("---- End Resend Error ----");
+                        break;
+                    }
                 }
-                
             }
      
         } catch (Exception e) {
@@ -169,7 +216,7 @@ public class ForwardServerThread implements Runnable {
         }
     }
 
-    public void responseFile(String from, String to, String name, String size) {
+    public void responseFile() {
         try {
             File file = new File("files/" + name);
             String through = this.distanceVectorAlgorithm.distanceVectorHashMap.get(distanceVectorAlgorithm.myNode).get(from).get("hop"); // ruta segun Distance Vector
@@ -236,14 +283,6 @@ public class ForwardServerThread implements Runnable {
         }
     }
 
-    public String bytesToHex(byte[] in) {
-        final StringBuilder builder = new StringBuilder();
-        for (byte b : in) {
-            builder.append(String.format("%02x", b));
-        }
-        return builder.toString();
-    }
-
     public void sendFile(String ip) {
         try {
             int head = 1;
@@ -278,6 +317,67 @@ public class ForwardServerThread implements Runnable {
             }
             writer.close();
             socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String bytesToHex(byte[] in) {
+        final StringBuilder builder = new StringBuilder();
+        for (byte b : in) {
+            builder.append(String.format("%02x", b));
+        }
+        return builder.toString();
+    }
+
+    public void saveError() {
+        try {
+            this.forwardClient.sema.acquire();
+            this.forwardClient.errorFlag = true;
+            this.forwardClient.message = msg;
+            this.forwardClient.waitingFlag = false;
+            this.forwardClient.sema.release();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void resendRequest() {
+        try {
+            String through = this.distanceVectorAlgorithm.distanceVectorHashMap.get(distanceVectorAlgorithm.myNode).get(to).get("hop");
+            String ip = this.distanceVectorAlgorithm.hostNeighbours.get(through).get("ip");
+            Socket socket = new Socket(ip, this.fordwardPort);
+            PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+            
+            String info = "From:" + from;
+            info += "\n" + "To:" + to;
+            info += "\n" + "Name:" + name;
+            info += "\n" + "Size:" + size;
+            info += "\n" + "EOF";
+            writer.println(info);
+            writer.close();
+            socket.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void resendError() {
+        try {
+            String through = this.distanceVectorAlgorithm.distanceVectorHashMap.get(distanceVectorAlgorithm.myNode).get(to).get("hop");
+            String ip = this.distanceVectorAlgorithm.hostNeighbours.get(through).get("ip");
+            Socket socket = new Socket(ip, this.fordwardPort);
+            PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+            
+            String info = "From:" + from;
+            info += "\n" + "To:" + to;
+            info += "\n" + "Msg:" + msg;
+            info += "\n" + "EOF";
+            writer.println(info);
+            writer.close();
+            socket.close();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

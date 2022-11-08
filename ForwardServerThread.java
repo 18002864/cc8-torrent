@@ -37,9 +37,9 @@ public class ForwardServerThread implements Runnable {
     public void run() {
         try {
             
-            this.logForwardServer.add("---- Start Receive Request ----");
             while (true) {
                 // Metodo para recibir el mensaje completo
+                this.logForwardServer.add("---- Start Receive Request ----");
                 saveRequest();
                 this.logForwardServer.add("---- End Receive Request ----\n");
                 // Verificar si el request es para mi o si tiene que ser retransmitido

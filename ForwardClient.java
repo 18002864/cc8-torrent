@@ -1,9 +1,14 @@
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.concurrent.Semaphore;
 import utils.Constants;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 public class ForwardClient {
     protected Log logAplicacion;
@@ -61,24 +66,25 @@ public class ForwardClient {
             //System.out.println(ip);
 
             
-            // Envio de solicitud de archivo (pendiente cambiar a JSON)
-            Socket socketClient = new Socket(ip, this.fordwardPort);
-            PrintWriter outSocket = new PrintWriter(socketClient.getOutputStream(), true);
-            String info = "From:" + distanceVectorAlgorithm.myNode;
-            info += "\n" + "To:" + this.destiny;
-            info += "\n" + "Name:" + this.fileName;
-            info += "\n" + "Size:" + this.fileSize;
-            info += "\n" + "EOF";
-            
-            outSocket.println(info);
-            outSocket.close();
-            socketClient.close();
+            // Envio de solicitud de archivo (Cambio a JSON)
+            Socket socket = new Socket(ip, this.fordwardPort);
+            PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+            MessageJson messageJson = new MessageJson();
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+            String chunk = chunks.remove(0);
 
-            logAplicacion.add("From:" + distanceVectorAlgorithm.myNode);
-            logAplicacion.add("To:" + this.destiny);
-            logAplicacion.add("Name:" + this.fileName);
-            logAplicacion.add("Size:" + this.fileSize);
-            logAplicacion.add("EOF");        
+            messageJson.setType(MessageType.NORMAL);
+            messageJson.setFileName(this.fileName);
+            messageJson.setTotalLength(this.fileSize);
+            messageJson.setChunk("");
+
+            //En esta parte transformamos el objeto a un Json string
+            writer.println(objectMapper.writeValueAsString(messageJson));
+            
+            writer.close();
+            socket.close();
+ 
             logAplicacion.add("---- End Send Request ----\n");
             
 

@@ -1,81 +1,106 @@
-   INFO  2022-11-02 08:25:50  
-   INFO  2022-11-02 08:25:50  ---- Available Nodes ---- 
-   INFO  2022-11-02 08:25:50  Neighbour A IP 25.6.115.224 port 9080
-   INFO  2022-11-02 08:25:50  ---- Available Nodes ---- 
-   INFO  2022-11-02 08:25:50  
-   INFO  2022-11-02 08:25:51  
-   INFO  2022-11-02 08:25:51  ---- Greetings Process Started ---- 
-   INFO  2022-11-02 08:25:51  Initialize protocol with Node A
-   INFO  2022-11-02 08:25:51  Sending message Type:HELLO
-   INFO  2022-11-02 08:25:51  Waiting message from A
-   INFO  2022-11-02 08:25:52  Waiting message from A
-   INFO  2022-11-02 08:25:52  Node A answer WELCOME
-   INFO  2022-11-02 08:25:52  Greetings completed with node A
-   INFO  2022-11-02 08:25:52  ---- Greetings Process Finish ---- 
-   INFO  2022-11-02 08:25:52  
-   INFO  2022-11-02 08:25:52  
-   INFO  2022-11-02 08:25:52  ---- Distance Vector Process Started ---- 
-   INFO  2022-11-02 08:25:52  Transmit Distance Vectors to Node A
-   INFO  2022-11-02 08:25:52  DV From:B Type:DV Len:1 A:5
-   INFO  2022-11-02 08:25:52  Distance Vector has been transmitted A marking as notified
-   INFO  2022-11-02 08:25:52  ---- Distance Vector Process Finish ---- 
-   INFO  2022-11-02 08:25:52  
-   INFO  2022-11-02 08:26:12  
-   INFO  2022-11-02 08:26:12  ---- Keep Alive Process Started ---- 
-   INFO  2022-11-02 08:26:12  Neighbour A is listening 
-   INFO  2022-11-02 08:26:12  Transmiting Keep Alive to A
-   INFO  2022-11-02 08:26:12  ---- Keep Alive Process Finish ---- 
-   INFO  2022-11-02 08:26:12  
-   INFO  2022-11-02 08:26:32  
-   INFO  2022-11-02 08:26:32  ---- Keep Alive Process Started ---- 
-   INFO  2022-11-02 08:26:32  Neighbour A is listening 
-   INFO  2022-11-02 08:26:32  Transmiting Keep Alive to A
-   INFO  2022-11-02 08:26:32  ---- Keep Alive Process Finish ---- 
-   INFO  2022-11-02 08:26:32  
-   INFO  2022-11-02 08:26:52  
-   INFO  2022-11-02 08:26:52  ---- Keep Alive Process Started ---- 
-   INFO  2022-11-02 08:26:52  Neighbour A is listening 
-   INFO  2022-11-02 08:26:52  Transmiting Keep Alive to A
-   INFO  2022-11-02 08:26:52  ---- Keep Alive Process Finish ---- 
-   INFO  2022-11-02 08:26:52  
-   INFO  2022-11-02 08:27:12  
-   INFO  2022-11-02 08:27:12  ---- Keep Alive Process Started ---- 
-   INFO  2022-11-02 08:27:12  Neighbour A is listening 
-   INFO  2022-11-02 08:27:12  Transmiting Keep Alive to A
-   INFO  2022-11-02 08:27:12  ---- Keep Alive Process Finish ---- 
-   INFO  2022-11-02 08:27:12  
-   INFO  2022-11-02 08:27:32  
-   INFO  2022-11-02 08:27:32  ---- Keep Alive Process Started ---- 
-   INFO  2022-11-02 08:27:32  Neighbour A is listening 
-   INFO  2022-11-02 08:27:32  Transmiting Keep Alive to A
-   INFO  2022-11-02 08:27:32  ---- Keep Alive Process Finish ---- 
-   INFO  2022-11-02 08:27:32  
-   INFO  2022-11-02 08:27:52  
-   INFO  2022-11-02 08:27:52  ---- Keep Alive Process Started ---- 
-   INFO  2022-11-02 08:27:52  Neighbour A is listening 
-   INFO  2022-11-02 08:27:52  Transmiting Keep Alive to A
-   INFO  2022-11-02 08:27:52  ---- Keep Alive Process Finish ---- 
-   INFO  2022-11-02 08:27:52  
-   INFO  2022-11-02 08:28:12  
-   INFO  2022-11-02 08:28:12  ---- Keep Alive Process Started ---- 
-   INFO  2022-11-02 08:28:12  Neighbour A is listening 
-   INFO  2022-11-02 08:28:12  Transmiting Keep Alive to A
-   INFO  2022-11-02 08:28:12  ---- Keep Alive Process Finish ---- 
-   INFO  2022-11-02 08:28:12  
-   INFO  2022-11-02 08:28:32  
-   INFO  2022-11-02 08:28:32  ---- Keep Alive Process Started ---- 
-   INFO  2022-11-02 08:28:32  Neighbour A is listening 
-   INFO  2022-11-02 08:28:32  Transmiting Keep Alive to A
-   INFO  2022-11-02 08:28:32  ---- Keep Alive Process Finish ---- 
-   INFO  2022-11-02 08:28:32  
-   INFO  2022-11-02 08:28:52  
-   INFO  2022-11-02 08:28:52  ---- Keep Alive Process Started ---- 
-   INFO  2022-11-02 08:28:52  Neighbour A is listening 
-   INFO  2022-11-02 08:28:52  Transmiting Keep Alive to A
-   INFO  2022-11-02 08:28:52  ---- Keep Alive Process Finish ---- 
-   INFO  2022-11-02 08:28:52  
-   INFO  2022-11-02 08:29:12  
-   INFO  2022-11-02 08:29:12  ---- Keep Alive Process Error ---- 
-  WARNING  2022-11-02 08:29:12  Neighbour A is not connected, rejecting client
-   INFO  2022-11-02 08:29:12  ---- Keep Alive Process Error ---- 
-   INFO  2022-11-02 08:29:12  
+   INFO  2022-11-02 07:32:41  
+   INFO  2022-11-02 07:32:41  ---- Available Nodes ---- 
+   INFO  2022-11-02 07:32:41  Neighbour B IP 25.5.98.239 port 9080
+   INFO  2022-11-02 07:32:41  ---- Available Nodes ---- 
+   INFO  2022-11-02 07:32:41  
+   INFO  2022-11-02 07:32:44  
+   INFO  2022-11-02 07:32:44  ---- Greetings Process Started ---- 
+   INFO  2022-11-02 07:32:44  Initialize protocol with Node B
+   INFO  2022-11-02 07:32:44  Sending message Type:HELLO
+   INFO  2022-11-02 07:32:44  Waiting message from B
+   INFO  2022-11-02 07:32:45  Waiting message from B
+   INFO  2022-11-02 07:32:45  Node B answer WELCOME
+   INFO  2022-11-02 07:32:45  Greetings completed with node B
+   INFO  2022-11-02 07:32:45  ---- Greetings Process Finish ---- 
+   INFO  2022-11-02 07:32:45  
+   INFO  2022-11-02 07:32:45  
+   INFO  2022-11-02 07:32:45  ---- Distance Vector Process Started ---- 
+   INFO  2022-11-02 07:32:45  Transmit Distance Vectors to Node B
+   INFO  2022-11-02 07:32:45  DV From:A Type:DV Len:1 B:5
+   INFO  2022-11-02 07:32:45  Distance Vector has been transmitted B marking as notified
+   INFO  2022-11-02 07:32:45  ---- Distance Vector Process Finish ---- 
+   INFO  2022-11-02 07:32:45  
+   INFO  2022-11-02 07:33:05  
+   INFO  2022-11-02 07:33:05  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:33:05  Neighbour B is listening 
+   INFO  2022-11-02 07:33:05  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:33:05  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:33:05  
+   INFO  2022-11-02 07:33:25  
+   INFO  2022-11-02 07:33:25  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:33:25  Neighbour B is listening 
+   INFO  2022-11-02 07:33:25  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:33:25  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:33:25  
+   INFO  2022-11-02 07:33:45  
+   INFO  2022-11-02 07:33:45  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:33:45  Neighbour B is listening 
+   INFO  2022-11-02 07:33:45  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:33:45  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:33:45  
+   INFO  2022-11-02 07:34:05  
+   INFO  2022-11-02 07:34:05  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:34:05  Neighbour B is listening 
+   INFO  2022-11-02 07:34:05  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:34:05  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:34:05  
+   INFO  2022-11-02 07:34:25  
+   INFO  2022-11-02 07:34:25  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:34:25  Neighbour B is listening 
+   INFO  2022-11-02 07:34:25  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:34:25  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:34:25  
+   INFO  2022-11-02 07:34:45  
+   INFO  2022-11-02 07:34:45  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:34:45  Neighbour B is listening 
+   INFO  2022-11-02 07:34:45  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:34:45  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:34:45  
+   INFO  2022-11-02 07:35:05  
+   INFO  2022-11-02 07:35:05  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:35:05  Neighbour B is listening 
+   INFO  2022-11-02 07:35:05  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:35:05  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:35:05  
+   INFO  2022-11-02 07:35:25  
+   INFO  2022-11-02 07:35:25  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:35:25  Neighbour B is listening 
+   INFO  2022-11-02 07:35:25  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:35:25  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:35:25  
+   INFO  2022-11-02 07:35:45  
+   INFO  2022-11-02 07:35:45  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:35:45  Neighbour B is listening 
+   INFO  2022-11-02 07:35:45  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:35:45  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:35:45  
+   INFO  2022-11-02 07:36:05  
+   INFO  2022-11-02 07:36:05  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:36:05  Neighbour B is listening 
+   INFO  2022-11-02 07:36:05  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:36:05  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:36:05  
+   INFO  2022-11-02 07:36:25  
+   INFO  2022-11-02 07:36:25  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:36:25  Neighbour B is listening 
+   INFO  2022-11-02 07:36:25  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:36:25  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:36:25  
+   INFO  2022-11-02 07:36:45  
+   INFO  2022-11-02 07:36:45  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:36:45  Neighbour B is listening 
+   INFO  2022-11-02 07:36:45  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:36:45  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:36:45  
+   INFO  2022-11-02 07:37:05  
+   INFO  2022-11-02 07:37:05  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:37:05  Neighbour B is listening 
+   INFO  2022-11-02 07:37:05  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:37:05  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:37:05  
+   INFO  2022-11-02 07:37:25  
+   INFO  2022-11-02 07:37:25  ---- Keep Alive Process Started ---- 
+   INFO  2022-11-02 07:37:25  Neighbour B is listening 
+   INFO  2022-11-02 07:37:25  Transmiting Keep Alive to B
+   INFO  2022-11-02 07:37:25  ---- Keep Alive Process Finish ---- 
+   INFO  2022-11-02 07:37:25  

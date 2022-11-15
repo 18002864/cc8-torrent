@@ -1,2 +1,16 @@
-   INFO  2022-11-02 08:25:50  Forward Server is running on port 1981
+   INFO  2022-11-02 07:32:41  Forward Server is running on port 1981
 
+   INFO  2022-11-02 07:33:44  ---- Start Receive Request ----
+   INFO  2022-11-02 07:33:44  From:B
+   INFO  2022-11-02 07:33:44  To:A
+   INFO  2022-11-02 07:33:44  Name:video.mp4
+   INFO  2022-11-02 07:33:44  Size:340950
+   INFO  2022-11-02 07:33:44  EOF
+   INFO  2022-11-02 07:33:44  from: B, to: A, name: video.mp4, size: 340950, data: , frag: , msg: 
+   INFO  2022-11-02 07:33:44  ---- End Receive Request ----
+
+   INFO  2022-11-02 07:33:44  ---- Start Response File ----
+   INFO  2022-11-02 07:33:44  File exists
+   INFO  2022-11-02 07:33:46  File fragmented
+   INFO  2022-11-02 07:33:47  File sended
+   INFO  2022-11-02 07:33:47  ---- End Response File ----

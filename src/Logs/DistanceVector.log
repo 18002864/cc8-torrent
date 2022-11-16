@@ -1,0 +1,79 @@
+   INFO  2022-11-14 06:10:08  My Node ---> B
+   INFO  2022-11-14 06:10:08  
+   INFO  2022-11-14 06:10:08  ---- Control Table ----
+   INFO  2022-11-14 06:10:08  Changes in map ---> true
+   INFO  2022-11-14 06:10:08  Neighbours Notify Table ---> {A=false}
+   INFO  2022-11-14 06:10:08  Neighbours Connected Table ---> {A=false}
+   INFO  2022-11-14 06:10:08  Neighbours Listening Table ---> {A=false}
+   INFO  2022-11-14 06:10:08  ---- Control Table ----
+   INFO  2022-11-14 06:10:08  
+   INFO  2022-11-14 06:10:08  
+   INFO  2022-11-14 06:10:08  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:10:08  B --->   Hop A Cost 5,  Hop B Cost 0,
+   INFO  2022-11-14 06:10:08  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:10:08  
+   INFO  2022-11-14 06:10:23  
+   INFO  2022-11-14 06:10:23  ---- Control Table ----
+   INFO  2022-11-14 06:10:23  Changes in map ---> false
+   INFO  2022-11-14 06:10:23  Neighbours Notify Table ---> {A=true}
+   INFO  2022-11-14 06:10:23  Neighbours Connected Table ---> {A=false}
+   INFO  2022-11-14 06:10:23  Neighbours Listening Table ---> {A=false}
+   INFO  2022-11-14 06:10:23  ---- Control Table ----
+   INFO  2022-11-14 06:10:23  
+   INFO  2022-11-14 06:10:23  
+   INFO  2022-11-14 06:10:23  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:10:23  B --->   Hop A Cost 5,  Hop B Cost 0,
+   INFO  2022-11-14 06:10:23  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:10:23  
+   INFO  2022-11-14 06:10:38  
+   INFO  2022-11-14 06:10:38  ---- Control Table ----
+   INFO  2022-11-14 06:10:38  Changes in map ---> false
+   INFO  2022-11-14 06:10:38  Neighbours Notify Table ---> {A=true}
+   INFO  2022-11-14 06:10:38  Neighbours Connected Table ---> {A=false}
+   INFO  2022-11-14 06:10:38  Neighbours Listening Table ---> {A=false}
+   INFO  2022-11-14 06:10:38  ---- Control Table ----
+   INFO  2022-11-14 06:10:38  
+   INFO  2022-11-14 06:10:38  
+   INFO  2022-11-14 06:10:38  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:10:38  B --->   Hop A Cost 5,  Hop B Cost 0,
+   INFO  2022-11-14 06:10:38  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:10:38  
+   INFO  2022-11-14 06:10:53  
+   INFO  2022-11-14 06:10:53  ---- Control Table ----
+   INFO  2022-11-14 06:10:53  Changes in map ---> false
+   INFO  2022-11-14 06:10:53  Neighbours Notify Table ---> {A=true}
+   INFO  2022-11-14 06:10:53  Neighbours Connected Table ---> {A=false}
+   INFO  2022-11-14 06:10:53  Neighbours Listening Table ---> {A=false}
+   INFO  2022-11-14 06:10:53  ---- Control Table ----
+   INFO  2022-11-14 06:10:53  
+   INFO  2022-11-14 06:10:53  
+   INFO  2022-11-14 06:10:53  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:10:53  B --->   Hop A Cost 5,  Hop B Cost 0,
+   INFO  2022-11-14 06:10:53  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:10:53  
+   INFO  2022-11-14 06:11:08  
+   INFO  2022-11-14 06:11:08  ---- Control Table ----
+   INFO  2022-11-14 06:11:08  Changes in map ---> false
+   INFO  2022-11-14 06:11:08  Neighbours Notify Table ---> {A=true}
+   INFO  2022-11-14 06:11:08  Neighbours Connected Table ---> {A=false}
+   INFO  2022-11-14 06:11:08  Neighbours Listening Table ---> {A=false}
+   INFO  2022-11-14 06:11:08  ---- Control Table ----
+   INFO  2022-11-14 06:11:08  
+   INFO  2022-11-14 06:11:08  
+   INFO  2022-11-14 06:11:08  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:11:08  B --->   Hop A Cost 5,  Hop B Cost 0,
+   INFO  2022-11-14 06:11:08  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:11:08  
+   INFO  2022-11-14 06:11:23  
+   INFO  2022-11-14 06:11:23  ---- Control Table ----
+   INFO  2022-11-14 06:11:23  Changes in map ---> false
+   INFO  2022-11-14 06:11:23  Neighbours Notify Table ---> {A=true}
+   INFO  2022-11-14 06:11:23  Neighbours Connected Table ---> {A=false}
+   INFO  2022-11-14 06:11:23  Neighbours Listening Table ---> {A=false}
+   INFO  2022-11-14 06:11:23  ---- Control Table ----
+   INFO  2022-11-14 06:11:23  
+   INFO  2022-11-14 06:11:23  
+   INFO  2022-11-14 06:11:23  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:11:23  B --->   Hop A Cost 5,  Hop B Cost 0,
+   INFO  2022-11-14 06:11:23  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:11:23  

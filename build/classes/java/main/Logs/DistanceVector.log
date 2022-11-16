@@ -1,0 +1,27 @@
+   INFO  2022-11-14 06:45:37  My Node ---> B
+   INFO  2022-11-14 06:45:37  
+   INFO  2022-11-14 06:45:37  ---- Control Table ----
+   INFO  2022-11-14 06:45:37  Changes in map ---> true
+   INFO  2022-11-14 06:45:37  Neighbours Notify Table ---> {A=false}
+   INFO  2022-11-14 06:45:37  Neighbours Connected Table ---> {A=false}
+   INFO  2022-11-14 06:45:37  Neighbours Listening Table ---> {A=false}
+   INFO  2022-11-14 06:45:37  ---- Control Table ----
+   INFO  2022-11-14 06:45:37  
+   INFO  2022-11-14 06:45:37  
+   INFO  2022-11-14 06:45:37  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:45:37  B --->   Hop A Cost 5,  Hop B Cost 0,
+   INFO  2022-11-14 06:45:37  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:45:37  
+   INFO  2022-11-14 06:45:52  
+   INFO  2022-11-14 06:45:52  ---- Control Table ----
+   INFO  2022-11-14 06:45:52  Changes in map ---> false
+   INFO  2022-11-14 06:45:52  Neighbours Notify Table ---> {A=true}
+   INFO  2022-11-14 06:45:52  Neighbours Connected Table ---> {A=false}
+   INFO  2022-11-14 06:45:52  Neighbours Listening Table ---> {A=false}
+   INFO  2022-11-14 06:45:52  ---- Control Table ----
+   INFO  2022-11-14 06:45:52  
+   INFO  2022-11-14 06:45:52  
+   INFO  2022-11-14 06:45:52  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:45:52  B --->   Hop A Cost 5,  Hop B Cost 0,
+   INFO  2022-11-14 06:45:52  ---- Cost And Hop Table ----
+   INFO  2022-11-14 06:45:52  

@@ -8,7 +8,7 @@ repositories {
 sourceSets {
     main {
         java {
-            srcDirs = ['Torrent']
+            srcDirs = ['/src']
         }
     }
 }

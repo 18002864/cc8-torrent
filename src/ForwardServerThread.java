@@ -9,6 +9,15 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import utils.Constants;
 
+/*import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+*/
 public class ForwardServerThread implements Runnable {
 
     protected Socket socket = null;
@@ -27,6 +36,7 @@ public class ForwardServerThread implements Runnable {
 
     private String from = "", to = "", name = "", size = "", data = "", frag = "", msg = "";
 
+
     public ForwardServerThread(Socket socket, DistanceVectorAlgorithm distanceVectorAlgorithm, Log logForwardServer, ForwardClient forwardClient) {
         this.socket = socket;
         this.distanceVectorAlgorithm = distanceVectorAlgorithm;
@@ -36,6 +46,8 @@ public class ForwardServerThread implements Runnable {
 
     public void run() {
         try {
+            
+
             
             while (true) {
                 // Metodo para recibir el mensaje completo
@@ -48,7 +60,7 @@ public class ForwardServerThread implements Runnable {
                     // Verificar si se esta solicitando un archivo
                     if (!name.equals("") && data.equals("")) { 
                         this.logForwardServer.add("---- Start Response File ----");
-                        this.responseFile();
+                        //this.responseFile();
                         this.logForwardServer.add("---- End Response File ----");
                         break;
                     } 
@@ -156,9 +168,27 @@ public class ForwardServerThread implements Runnable {
 
     public void saveRequest() {
         try {
+
+            writer = new PrintWriter(socket.getOutputStream(), true);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
             while (true) {
-                        
+                       
                 String message = in.readLine();
+
+                /*//Esta configuracion es importante para que funcione correctamente
+                ObjectMapper objectMapper = new ObjectMapper();
+                objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+                objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); 
+
+                //Aca obtenemos el mensaje enviado desde el cliente en formato JSON
+                //y se transforma a un objeto
+                MessageJson messageJson = objectMapper.readValue(message, MessageJson.class);
+                String fileName = messageJson.getFileName();
+                int fileLength = messageJson.getTotalLength();
+                String chunkObject = messageJson.getChunk();
+                */
+                
                 this.logForwardServer.add(message);
                 
                 if (message == null){

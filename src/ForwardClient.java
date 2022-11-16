@@ -6,8 +6,11 @@ import java.util.HashMap;
 import java.util.concurrent.Semaphore;
 import utils.Constants;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.fasterxml.jackson.annotation.JsonInclude;
+//import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.Map;  
+import org.json.simple.JSONValue;  
 
 
 public class ForwardClient {
@@ -58,11 +61,13 @@ public class ForwardClient {
     }
 
     public void sendRequest() {
+        //ObjectMapper objectMapper = new ObjectMapper();
         try {
             String through = this.distanceVectorAlgorithm.distanceVectorHashMap.get(distanceVectorAlgorithm.myNode).get(this.destiny).get("hop"); // ruta segun Distance Vector
             //System.out.println(through);
-            //through = "G";
-            String ip = this.distanceVectorAlgorithm.hostNeighbours.get(through).get("ip");
+            through = "B";
+            //String ip = this.distanceVectorAlgorithm.hostNeighbours.get(through).get("ip");
+            String ip = "192.168.56.1";
             //System.out.println(ip);
 
             
@@ -70,15 +75,16 @@ public class ForwardClient {
             Socket socket = new Socket(ip, this.fordwardPort);
             PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
             MessageJson messageJson = new MessageJson();
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-            String chunk = chunks.remove(0);
+            
+            //objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+            
 
             messageJson.setType(MessageType.NORMAL);
             messageJson.setFileName(this.fileName);
             messageJson.setTotalLength(this.fileSize);
             messageJson.setChunk("");
-
+            logAplicacion.add("1" + objectMapper.writeValueAsString(messageJson));
+            
             //En esta parte transformamos el objeto a un Json string
             writer.println(objectMapper.writeValueAsString(messageJson));
             
